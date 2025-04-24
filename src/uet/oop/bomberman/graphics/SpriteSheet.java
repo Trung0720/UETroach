@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class SpriteSheet {
-    public static SpriteSheet tiles = new SpriteSheet(256, "/textures/classic.png");
+    public static SpriteSheet tiles = new SpriteSheet(256, "textures/classic.png");
 
     public final int SIZE;
     private final String _path;
