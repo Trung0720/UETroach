@@ -29,13 +29,6 @@ public class MenuView {
     private MenuSubScene creditsSubScene;
     private MenuSubScene sceneToHide;
 
-
-    public enum menu {
-        HELP,
-        SCORES,
-        CREDITS
-    }
-
     public MenuView(Stage stage, Scene scene, Group root, GameLoop gameLoop) {
         this.stage = stage;
         this.scene = scene;
