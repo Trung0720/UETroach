@@ -28,7 +28,7 @@ public class Main extends Application {
 
     public void start(Stage stage) {
         stage.setResizable(false);
-        stage.getIcons().add(new Image("sprites/Bomber/koala_down.png"));
+        stage.getIcons().add(new Image(ICON));
 
         Scene scene = new Scene(
                 root,
