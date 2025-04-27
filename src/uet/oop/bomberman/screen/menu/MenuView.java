@@ -86,9 +86,9 @@ public class MenuView {
     }
 
     private void createSubScene() {
-        scoresSubScene = new MenuSubScene(menu.SCORES);
-        helpSubScene = new MenuSubScene(menu.HELP);
-        creditsSubScene = new MenuSubScene(menu.CREDITS);
+        scoresSubScene = new MenuSubScene(SubsceneType.SCORES);
+        helpSubScene = new MenuSubScene(SubsceneType.HELP);
+        creditsSubScene = new MenuSubScene(SubsceneType.CREDITS);
         pane.getChildren().addAll(
                 scoresSubScene,
                 helpSubScene,
