@@ -35,6 +35,11 @@ public class GameLoop extends AnimationTimer {
         }
     }
 
+    /**
+     * Calculate FPS.
+     * ChatGPT.
+     * @return game FPS
+     */
     public String calculateFPSandSCORE(long now) {
         long oldFrameTime = frameTimes[frameTimeIndex];
         frameTimes[frameTimeIndex] = now;
