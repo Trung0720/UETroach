@@ -86,6 +86,14 @@ public class MenuSubScene extends SubScene {
         return label;
     }
 
+    private Label createLabelWithIcon(String text, int size, String imagePath) {
+        Label label = createLabel(text, size);
+        ImageView image = new ImageView(new Image(imagePath, 30, 30, false, true));
+        label.setGraphic(image);
+
+        return label;
+    }
+
     private VBox createHelpContent() {
         Label label = createLabel("Hướng dẫn cách chơi:", 30);
         Label label1 = createLabel("Di chuyển sang trái", 25);
