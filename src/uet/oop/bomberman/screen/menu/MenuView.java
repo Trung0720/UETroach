@@ -45,7 +45,6 @@ public class MenuView {
             root.getChildren().add(pane);
         }
     }
-
     private void createBackground() {
         Image backgroundImage = new Image("menu/background.png");
         ImageView backgroundImageView = new ImageView(backgroundImage);
