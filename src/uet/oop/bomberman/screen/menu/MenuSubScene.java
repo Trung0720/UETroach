@@ -41,7 +41,7 @@ public class MenuSubScene extends SubScene {
             setEffect(null);
         });
 
-        switch (option) {
+        switch (subsceneType) {
             case HELP:
                 root.getChildren().add(createHelpContent());
                 break;
