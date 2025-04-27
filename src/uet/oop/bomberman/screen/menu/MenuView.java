@@ -12,9 +12,6 @@ import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MenuView {
     private static final int WIDTH = Main.CAMERA_WIDTH * Sprite.SCALED_SIZE;
     private static final int HEIGHT = Main.CAMERA_HEIGHT * Sprite.SCALED_SIZE;
