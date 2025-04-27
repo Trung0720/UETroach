@@ -34,7 +34,6 @@ public class MenuView {
         this.scene = scene;
         this.root = root;
         this.gameLoop = gameLoop;
-        menuButtons = new ArrayList<>();
         pane = new AnchorPane();
         createBackground();
         createLogo();
