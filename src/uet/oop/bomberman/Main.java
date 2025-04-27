@@ -32,8 +32,8 @@ public class Main extends Application {
 
         Scene scene = new Scene(
                 root,
-                Sprite.SCALED_SIZE * WIDTH,
-                Sprite.SCALED_SIZE * HEIGHT
+                Sprite.SCALED_SIZE * CAMERA_WIDTH,
+                Sprite.SCALED_SIZE * CAMERA_HEIGHT
         );
         stage.setScene(scene);
         stage.show();
