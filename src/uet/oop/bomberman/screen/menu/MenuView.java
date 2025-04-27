@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuView {
-    private static final int WIDTH = Main.WIDTH * Sprite.SCALED_SIZE;
-    private static final int HEIGHT = Main.HEIGHT * Sprite.SCALED_SIZE;
-    private static List<MenuButton> menuButtons;
+    private static final int WIDTH = Main.CAMERA_WIDTH * Sprite.SCALED_SIZE;
+    private static final int HEIGHT = Main.CAMERA_HEIGHT * Sprite.SCALED_SIZE;
+    private static int buttonCount = 0;
     private final Stage stage;
     private final Scene scene;
     private final Group root;
