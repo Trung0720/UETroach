@@ -17,7 +17,7 @@ public class MenuSubScene extends SubScene {
     private static final String FONT_PATH = "/menu/Baloo-Regular.ttf";
 
 
-    public MenuSubScene(MenuView.menu option) {
+    public MenuSubScene(SubsceneType subsceneType) {
         super(new AnchorPane(), 398, 500);
         setLayoutX(932);
         setLayoutY(270);
