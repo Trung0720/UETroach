@@ -124,6 +124,11 @@ public class MenuView {
     private void createStartButton() {
         MenuButton startButton = new MenuButton("PLAY");
         addMenuButton(startButton);
+
+        startButton.setOnAction(actionEvent -> {
+            pane.setVisible(false);
+            GameLoop.gameStart = 1;
+        });
     }
 
     private void createScoresButton() {
