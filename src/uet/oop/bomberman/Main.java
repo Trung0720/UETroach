@@ -11,7 +11,7 @@ import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.screen.menu.MenuView;
 
 public class Main extends Application {
-    public static int WIDTH = 21;
+    public static int WIDTH = 31;
     public static int HEIGHT = 13;
     public static int CAMERA_WIDTH = 21;
     public static int CAMERA_HEIGHT = 13;
