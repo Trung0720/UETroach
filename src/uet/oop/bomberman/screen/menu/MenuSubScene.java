@@ -16,8 +16,8 @@ public class MenuSubScene extends SubScene {
     private final static String BACKGROUND_IMAGE = "/menu/panel.png";
     private static final String FONT_PATH = "/menu/Baloo-Regular.ttf";
 
+    public MenuSubScene(SubsceneType subsceneType) {
 
-    public MenuSubScene(MenuView.menu option) {
         super(new AnchorPane(), 398, 500);
         setLayoutX(932);
         setLayoutY(270);
@@ -41,7 +41,8 @@ public class MenuSubScene extends SubScene {
             setEffect(null);
         });
 
-        switch (option) {
+        switch (subsceneType) {
+
             case HELP:
                 root.getChildren().add(createHelpContent());
                 break;
@@ -86,23 +87,22 @@ public class MenuSubScene extends SubScene {
         return label;
     }
 
+    private Label createLabelWithIcon(String text, int size, String imagePath) {
+        Label label = createLabel(text, size);
+        ImageView image = new ImageView(new Image(imagePath, 30, 30, false, true));
+        label.setGraphic(image);
+
+        return label;
+    }
+
     private VBox createHelpContent() {
         Label label = createLabel("Hướng dẫn cách chơi:", 30);
-        Label label1 = createLabel("Di chuyển sang trái", 25);
-        ImageView leftIcon = new ImageView(new Image("/menu/key_left.png", 30, 30, false, true));
-        label1.setGraphic(leftIcon);
-        Label label2 = createLabel("Di chuyển sang phải", 25);
-        ImageView rightIcon = new ImageView(new Image("/menu/key_right.png", 30, 30, false, true));
-        label2.setGraphic(rightIcon);
-        Label label3 = createLabel("Di chuyển lên trên", 25);
-        ImageView upIcon = new ImageView(new Image("/menu/key_up.png", 30, 30, false, true));
-        label3.setGraphic(upIcon);
-        Label label4 = createLabel("Di chuyển xuống dưới", 25);
-        ImageView downIcon = new ImageView(new Image("/menu/key_down.png", 30, 30, false, true));
-        label4.setGraphic(downIcon);
-        Label label5 = createLabel("Đặt bomb", 25);
-        ImageView spaceIcon = new ImageView(new Image("/menu/key_space.png", 30, 30, false, true));
-        label5.setGraphic(spaceIcon);
+        Label label1 = createLabelWithIcon("Di chuyển sang trái", 25, "/menu/key_left.png");
+        Label label2 = createLabelWithIcon("Di chuyển sang phải", 25, "/menu/key_right.png");
+        Label label3 = createLabelWithIcon("Di chuyển lên trên", 25, "/menu/key_up.png");
+        Label label4 = createLabelWithIcon("Di chuyển xuống dưới", 25, "/menu/key_down.png");
+        Label label5 = createLabelWithIcon("Đặt bomb", 25, "/menu/key_space.png");
+
         VBox box = new VBox(6);
         box.getChildren().addAll(label, label1, label2, label3, label4, label5);
         box.setLayoutX(45);

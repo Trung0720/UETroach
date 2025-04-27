@@ -15,12 +15,16 @@ public class MenuButton extends Button {
     private final String FONT_PATH = "/menu/wheaton capitals.otf";
     private final String BUTTON = "/menu/button.png";
     private final String BUTTON_PRESSED = "/menu/button_pressed.png";
+    private final int BUTTON_FONT_SIZE = 45;
+    private final int BUTTON_WIDTH = 380;
+    private final int BUTTON_HEIGHT = 98;
+    private final int BUTTON_HEIGHT_PRESSED = 90;
 
     private ImageView buttonImageView;
 
     public MenuButton(String text) {
-        setPrefWidth(380);
-        setPrefHeight(98);
+        setPrefWidth(BUTTON_WIDTH);
+        setPrefHeight(BUTTON_HEIGHT);
 
         buttonImageView = new ImageView(new Image(BUTTON));
         buttonImageView.setFitWidth(getPrefWidth());
@@ -42,25 +46,25 @@ public class MenuButton extends Button {
         InputStream fontStream = getClass().getResourceAsStream(FONT_PATH);
 
         if (fontStream != null) {
-            setFont(Font.loadFont(fontStream, 45));
+            setFont(Font.loadFont(fontStream, BUTTON_FONT_SIZE));
         } else {
             System.out.println("Menu buttons font not found!");
-            setFont(Font.font("Arial", 45));
+            setFont(Font.font("Arial", BUTTON_FONT_SIZE));
         }
     }
 
     private void setButtonPressed() {
         buttonImageView.setImage(new Image(BUTTON_PRESSED));
-        setPrefHeight(90);
+        setPrefHeight(BUTTON_HEIGHT_PRESSED);
         buttonImageView.setFitHeight(getPrefHeight());
-        setLayoutY(getLayoutY() + 8);
+        setLayoutY(getLayoutY() + (BUTTON_HEIGHT - BUTTON_HEIGHT_PRESSED));
     }
 
     private void setButtonReleased() {
         buttonImageView.setImage(new Image(BUTTON));
-        setPrefHeight(98);
+        setPrefHeight(BUTTON_HEIGHT);
         buttonImageView.setFitHeight(getPrefHeight());
-        setLayoutY(getLayoutY() - 8);
+        setLayoutY(getLayoutY() - (BUTTON_HEIGHT - BUTTON_HEIGHT_PRESSED));
     }
 
     private void eventHandler() {

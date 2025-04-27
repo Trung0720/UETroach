@@ -12,13 +12,10 @@ import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MenuView {
-    private static final int WIDTH = Main.WIDTH * Sprite.SCALED_SIZE;
-    private static final int HEIGHT = Main.HEIGHT * Sprite.SCALED_SIZE;
-    private static List<MenuButton> menuButtons;
+    private static final int WIDTH = Main.CAMERA_WIDTH * Sprite.SCALED_SIZE;
+    private static final int HEIGHT = Main.CAMERA_HEIGHT * Sprite.SCALED_SIZE;
+    private static int buttonCount = 0;
     private final Stage stage;
     private final Scene scene;
     private final Group root;
@@ -29,19 +26,11 @@ public class MenuView {
     private MenuSubScene creditsSubScene;
     private MenuSubScene sceneToHide;
 
-
-    public enum menu {
-        HELP,
-        SCORES,
-        CREDITS
-    }
-
     public MenuView(Stage stage, Scene scene, Group root, GameLoop gameLoop) {
         this.stage = stage;
         this.scene = scene;
         this.root = root;
         this.gameLoop = gameLoop;
-        menuButtons = new ArrayList<>();
         pane = new AnchorPane();
         createBackground();
         createLogo();
@@ -50,6 +39,12 @@ public class MenuView {
         root.getChildren().add(pane);
     }
 
+    public void showMenu() {
+        pane.setVisible(true);
+        if (!root.getChildren().contains(pane)) {
+            root.getChildren().add(pane);
+        }
+    }
     private void createBackground() {
         Image backgroundImage = new Image("menu/background.png");
         ImageView backgroundImageView = new ImageView(backgroundImage);
@@ -79,9 +74,9 @@ public class MenuView {
     }
 
     private void createSubScene() {
-        scoresSubScene = new MenuSubScene(menu.SCORES);
-        helpSubScene = new MenuSubScene(menu.HELP);
-        creditsSubScene = new MenuSubScene(menu.CREDITS);
+        scoresSubScene = new MenuSubScene(SubsceneType.SCORES);
+        helpSubScene = new MenuSubScene(SubsceneType.HELP);
+        creditsSubScene = new MenuSubScene(SubsceneType.CREDITS);
         pane.getChildren().addAll(
                 scoresSubScene,
                 helpSubScene,
@@ -101,8 +96,8 @@ public class MenuView {
 
     private void addMenuButton(MenuButton menuButton) {
         menuButton.setLayoutX(0);
-        menuButton.setLayoutY(260 + menuButtons.size() * 100);
-        menuButtons.add(menuButton);
+        menuButton.setLayoutY(260 + buttonCount * 100);
+        buttonCount++;
         pane.getChildren().add(menuButton);
     }
 
@@ -117,6 +112,11 @@ public class MenuView {
     private void createStartButton() {
         MenuButton startButton = new MenuButton("PLAY");
         addMenuButton(startButton);
+
+        startButton.setOnAction(actionEvent -> {
+            pane.setVisible(false);
+            GameLoop.gameStart = 1;
+        });
     }
 
     private void createScoresButton() {
