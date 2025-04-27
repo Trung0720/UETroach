@@ -108,8 +108,8 @@ public class MenuView {
 
     private void addMenuButton(MenuButton menuButton) {
         menuButton.setLayoutX(0);
-        menuButton.setLayoutY(260 + menuButtons.size() * 100);
-        menuButtons.add(menuButton);
+        menuButton.setLayoutY(260 + buttonCount * 100);
+        buttonCount++;
         pane.getChildren().add(menuButton);
     }
 
