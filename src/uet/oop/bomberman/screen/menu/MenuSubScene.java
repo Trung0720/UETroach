@@ -80,7 +80,6 @@ public class MenuSubScene extends SubScene {
             label.setFont(Font.font("Arial", size));
         }
 
-        label.setMaxWidth(500);
         label.setWrapText(true);
         label.setGraphicTextGap(30);
         return label;
