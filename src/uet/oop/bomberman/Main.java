@@ -8,6 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.screen.StatusBar;
 import uet.oop.bomberman.screen.menu.MenuView;
 
 public class Main extends Application {
@@ -20,6 +21,8 @@ public class Main extends Application {
     public static Group root = new Group();
     public static Canvas canvas;
     public static GraphicsContext graphicsContext;
+    public static int score = 0;
+    public static int currentLevel = 0;
 
 
     public static void main(String[] args) {
@@ -44,6 +47,8 @@ public class Main extends Application {
         );
         graphicsContext = canvas.getGraphicsContext2D();
         root.getChildren().add(canvas);
+
+        StatusBar.createStatusBar(root);
 
         GameLoop gameLoop = new GameLoop(stage);
         gameLoop.start();
