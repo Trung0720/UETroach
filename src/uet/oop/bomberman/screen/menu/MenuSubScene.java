@@ -13,7 +13,7 @@ import javafx.util.Duration;
 import java.io.InputStream;
 
 public class MenuSubScene extends SubScene {
-    private final static String BACKGROUND_IMAGE = "/menu/panel.png";
+    private static final String BACKGROUND_IMAGE = "/menu/panel.png";
     private static final String FONT_PATH = "/menu/Baloo-Regular.ttf";
 
 
