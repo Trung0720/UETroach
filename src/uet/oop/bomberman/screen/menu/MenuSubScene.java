@@ -14,7 +14,7 @@ import java.io.InputStream;
 
 public class MenuSubScene extends SubScene {
     private static final String BACKGROUND_IMAGE = "/menu/panel.png";
-    private static final String FONT_PATH = "/menu/Baloo-Regular.ttf";
+    private static final String FONT_PATH = "/font/Baloo-Regular.ttf";
 
 
     public MenuSubScene(SubsceneType subsceneType) {

@@ -12,7 +12,7 @@ import javafx.scene.text.Font;
 import java.io.InputStream;
 
 public class MenuButton extends Button {
-    private final String FONT_PATH = "/menu/wheaton capitals.otf";
+    private final String FONT_PATH = "/font/wheaton capitals.otf";
     private final String BUTTON = "/menu/button.png";
     private final String BUTTON_PRESSED = "/menu/button_pressed.png";
     private final int BUTTON_FONT_SIZE = 45;
