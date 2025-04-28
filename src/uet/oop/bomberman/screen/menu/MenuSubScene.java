@@ -13,8 +13,8 @@ import javafx.util.Duration;
 import java.io.InputStream;
 
 public class MenuSubScene extends SubScene {
-    private final static String BACKGROUND_IMAGE = "/menu/panel.png";
-    private static final String FONT_PATH = "/menu/Baloo-Regular.ttf";
+    private static final String BACKGROUND_IMAGE = "/menu/panel.png";
+    private static final String FONT_PATH = "/font/Baloo-Regular.ttf";
 
     public MenuSubScene(SubsceneType subsceneType) {
 
@@ -81,7 +81,6 @@ public class MenuSubScene extends SubScene {
             label.setFont(Font.font("Arial", size));
         }
 
-        label.setMaxWidth(500);
         label.setWrapText(true);
         label.setGraphicTextGap(30);
         return label;

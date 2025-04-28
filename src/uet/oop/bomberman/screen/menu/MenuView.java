@@ -115,7 +115,7 @@ public class MenuView {
 
         startButton.setOnAction(actionEvent -> {
             pane.setVisible(false);
-            GameLoop.gameStart = 1;
+            GameLoop.gameStatus = 1;
         });
     }
 

@@ -2,10 +2,11 @@ package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
 import javafx.stage.Stage;
+import uet.oop.bomberman.screen.StatusBar;
 
 public class GameLoop extends AnimationTimer {
     private final Stage stage;
-    public static int gameStart;
+    public static int gameStatus;
     private final long[] frameTimes = new long[100];
     private int frameTimeIndex = 0;
     private boolean arrayFilled = false;
@@ -26,11 +27,12 @@ public class GameLoop extends AnimationTimer {
             lastUpdate += frameDuration;
             stage.setTitle(calculateFPSandSCORE(now));
 
-            if (gameStart == 1) {
+            if (gameStatus == 1) {
                 update();
                 render();
-            } else if (gameStart == 2 || gameStart == 3) {
-                gameStart = 0;
+                StatusBar.updateStatusBar(now);
+            } else if (gameStatus == 2 || gameStatus == 3) {
+                gameStatus = 0;
             }
         }
     }
