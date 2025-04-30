@@ -16,8 +16,8 @@ public class MenuSubScene extends SubScene {
     private static final String BACKGROUND_IMAGE = "/menu/panel.png";
     private static final String FONT_PATH = "/font/Baloo-Regular.ttf";
 
-
     public MenuSubScene(SubsceneType subsceneType) {
+
         super(new AnchorPane(), 398, 500);
         setLayoutX(932);
         setLayoutY(270);
@@ -42,6 +42,7 @@ public class MenuSubScene extends SubScene {
         });
 
         switch (subsceneType) {
+
             case HELP:
                 root.getChildren().add(createHelpContent());
                 break;
