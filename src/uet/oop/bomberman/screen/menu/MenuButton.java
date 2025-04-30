@@ -20,7 +20,6 @@ public class MenuButton extends Button {
     private final int BUTTON_HEIGHT = 98;
     private final int BUTTON_HEIGHT_PRESSED = 90;
 
-
     private ImageView buttonImageView;
 
     public MenuButton(String text) {
