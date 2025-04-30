@@ -12,12 +12,14 @@ import uet.oop.bomberman.screen.StatusBar;
 import uet.oop.bomberman.screen.menu.MenuView;
 
 public class Main extends Application {
-    public static int WIDTH = 31;
-    public static int HEIGHT = 13;
-    public static int CAMERA_WIDTH = 21;
-    public static int CAMERA_HEIGHT = 13;
-    public static int STATUS_BAR_HEIGHT = 32;
+    public static final int WIDTH = 31;
+    public static final int HEIGHT = 13;
+    public static final int CAMERA_WIDTH = 21;
+    public static final int CAMERA_HEIGHT = 13;
+    public static final int STATUS_BAR_HEIGHT = 32;
     public static final String ICON = "sprites/Bomber/koala_down.png";
+    public static int cameraX = 0;
+    public static int cameraY = 0;
     public static Group root = new Group();
     public static Canvas canvas;
     public static GraphicsContext graphicsContext;
