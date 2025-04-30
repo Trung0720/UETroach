@@ -23,6 +23,7 @@ public class Main extends Application {
     public static GraphicsContext graphicsContext;
     public static int score = 0;
     public static int currentLevel = 0;
+    public static int nextLevel = 1;
 
 
     public static void main(String[] args) {

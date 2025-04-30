@@ -2,6 +2,7 @@ package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
 import javafx.stage.Stage;
+import uet.oop.bomberman.screen.AfterLevelScene;
 import uet.oop.bomberman.screen.StatusBar;
 
 public class GameLoop extends AnimationTimer {
