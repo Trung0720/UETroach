@@ -54,6 +54,6 @@ public class Main extends Application {
         GameLoop gameLoop = new GameLoop(stage);
         gameLoop.start();
 
-        MenuView menuView = new MenuView(stage, scene, root, gameLoop);
+        MenuView menuView = new MenuView(root, gameLoop);
     }
 }
