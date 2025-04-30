@@ -2,12 +2,10 @@ package uet.oop.bomberman.screen.menu;
 
 import javafx.application.Platform;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
 import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
@@ -15,23 +13,20 @@ import uet.oop.bomberman.graphics.Sprite;
 public class MenuView {
     private static final int WIDTH = Main.CAMERA_WIDTH * Sprite.SCALED_SIZE;
     private static final int HEIGHT = Main.CAMERA_HEIGHT * Sprite.SCALED_SIZE;
+    private static final String BACKGROUND = "menu/background.png";
     private static int buttonCount = 0;
-    private final Stage stage;
-    private final Scene scene;
     private final Group root;
     private final GameLoop gameLoop;
-    private static AnchorPane pane;
+    private static Pane pane;
     private MenuSubScene scoresSubScene;
     private MenuSubScene helpSubScene;
     private MenuSubScene creditsSubScene;
     private MenuSubScene sceneToHide;
 
-    public MenuView(Stage stage, Scene scene, Group root, GameLoop gameLoop) {
-        this.stage = stage;
-        this.scene = scene;
+    public MenuView(Group root, GameLoop gameLoop) {
         this.root = root;
         this.gameLoop = gameLoop;
-        pane = new AnchorPane();
+        pane = new Pane();
         createBackground();
         createLogo();
         createButtons();
@@ -46,7 +41,7 @@ public class MenuView {
         }
     }
     private void createBackground() {
-        Image backgroundImage = new Image("menu/background.png");
+        Image backgroundImage = new Image(BACKGROUND);
         ImageView backgroundImageView = new ImageView(backgroundImage);
 
         backgroundImageView.setFitWidth(WIDTH);
