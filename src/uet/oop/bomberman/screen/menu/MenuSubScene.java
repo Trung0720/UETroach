@@ -15,23 +15,25 @@ import java.io.InputStream;
 public class MenuSubScene extends SubScene {
     private static final String BACKGROUND_IMAGE = "/menu/panel.png";
     private static final String FONT_PATH = "/font/Baloo-Regular.ttf";
+    private static final int WIDTH = 398;
+    private static final int HEIGHT = 500;
 
     public MenuSubScene(SubsceneType subsceneType) {
 
-        super(new AnchorPane(), 398, 500);
+        super(new Pane(), WIDTH, HEIGHT);
         setLayoutX(932);
         setLayoutY(270);
         setVisible(false);
         setOpacity(0);
 
         BackgroundImage backgroundImage = new BackgroundImage(
-                new Image(BACKGROUND_IMAGE, 398, 500, false, true),
+                new Image(BACKGROUND_IMAGE, WIDTH, HEIGHT, false, true),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT,
                 null
         );
-        AnchorPane root = (AnchorPane) this.getRoot();
+        Pane root = (Pane) this.getRoot();
         root.setBackground(new Background(backgroundImage));
 
         setOnMouseEntered(mouseEvent -> {
