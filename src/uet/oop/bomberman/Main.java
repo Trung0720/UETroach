@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.screen.StatusBar;
 import uet.oop.bomberman.screen.menu.MenuView;
+import uet.oop.bomberman.sound.Sound;
 
 public class Main extends Application {
     public static final int WIDTH = 31;
@@ -17,7 +18,8 @@ public class Main extends Application {
     public static final int CAMERA_WIDTH = 21;
     public static final int CAMERA_HEIGHT = 13;
     public static final int STATUS_BAR_HEIGHT = 32;
-    public static final String ICON = "sprites/Bomber/koala_down.png";
+    public static final String ICON = "/sprites/Bomber/koala_down.png";
+    public static final String BACKGROUND_MUSIC = "res/sound/backGroundSound.wav";
     public static int cameraX = 0;
     public static int cameraY = 0;
     public static Group root = new Group();
@@ -52,6 +54,8 @@ public class Main extends Application {
         root.getChildren().add(canvas);
 
         StatusBar.createStatusBar(root);
+
+        Sound.playSoundForever(BACKGROUND_MUSIC);
 
         GameLoop gameLoop = new GameLoop(stage);
         gameLoop.start();
