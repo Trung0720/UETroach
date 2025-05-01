@@ -1,30 +1,36 @@
 package uet.oop.bomberman.screen;
 
 import javafx.scene.Group;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.io.InputStream;
 
 public class StatusBar {
     private static final String FONT_PATH = "/font/Retro Gaming.ttf";
     private static final int FONT_SIZE = 14;
-    public static Text level, time, score;
+    public static Text level, time, score, masterVolume;
+    public static Slider volumeSlider;
     public static int countDown = 100000;
 
     public static void createStatusBar(Group root) {
-        level = createText(100, 23);
-        time = createText(300, 23);
-        score = createText(500, 23);
+        level = createText(100, 22);
+        time = createText(300, 22);
+        score = createText(500, 22);
+        masterVolume = createText(820, 22);
+        masterVolume.setText("MASTER VOLUME:");
+        volumeSlider = createSoundSlider();
 
         Pane pane = new Pane();
         pane.setMinWidth(Main.CAMERA_WIDTH * Sprite.SCALED_SIZE);
         pane.setPrefHeight(Main.STATUS_BAR_HEIGHT);
-        pane.getChildren().addAll(level, time, score);
+        pane.getChildren().addAll(level, time, score, masterVolume, volumeSlider);
         pane.setLayoutY(Main.CAMERA_HEIGHT * Sprite.SCALED_SIZE - Main.STATUS_BAR_HEIGHT);
         pane.setStyle("-fx-background-color: #333232");
 
@@ -47,6 +53,23 @@ public class StatusBar {
         }
 
         return text;
+    }
+
+    public static Slider createSoundSlider() {
+        Slider volumeSlider = new Slider(0, 1, Sound.getSoundVolume());
+        volumeSlider.setPrefWidth(300);
+        volumeSlider.setLayoutX(970);
+        volumeSlider.setLayoutY(10);
+        volumeSlider.setStyle("""
+        -fx-control-inner-background: #cdcbc9;
+        -fx-base: #333232;
+        """);
+
+        volumeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
+            Sound.setSoundVolume(newVal.doubleValue());
+        });
+
+        return volumeSlider;
     }
 
     public static void updateStatusBar(long now) {

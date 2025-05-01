@@ -21,7 +21,7 @@ public class AfterLevelScene {
     private static final String BACKGROUND_IMAGE = "/levels/blurred_background.png";
     private static Pane pane;
     public static Text levelUp, gameOver, win, score;
-    private static final int TIME = 2000;
+    private static final int TIME = 2;
 
     public static void renderScene() {
         pane = new Pane();
@@ -32,8 +32,10 @@ public class AfterLevelScene {
 
         Main.root.getChildren().add(pane);
 
-        PauseTransition delay = new PauseTransition(Duration.millis(TIME));
-        delay.setOnFinished(event -> pane.setVisible(false));
+        PauseTransition delay = new PauseTransition(Duration.seconds(TIME));
+        delay.setOnFinished(event -> {
+            pane.setVisible(false);
+        });
         delay.play();
     }
 
