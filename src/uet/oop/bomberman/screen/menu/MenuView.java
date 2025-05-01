@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 public class MenuView {
     private static final int WIDTH = Main.CAMERA_WIDTH * Sprite.SCALED_SIZE;
@@ -146,6 +147,7 @@ public class MenuView {
         addMenuButton(exitButton);
 
         exitButton.setOnAction(actionEvent -> {
+            Sound.stopAll();
             gameLoop.stop();
             Platform.exit();
             System.exit(0);
