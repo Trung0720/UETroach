@@ -28,8 +28,6 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-.idea/shelf/
-.idea/workspace.xml
-.idea/misc.xml
+.idea/
 
 
