@@ -2,9 +2,12 @@ package uet.oop.bomberman.entities;
 
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.entities.bomb.Bomb;
+import uet.oop.bomberman.entities.enemies.Enemy;
+import uet.oop.bomberman.entities.items.Item;
 import uet.oop.bomberman.entities.map.mapblock.Brick;
 import uet.oop.bomberman.entities.map.mapblock.Grass;
 import uet.oop.bomberman.entities.map.mapblock.Wall;
+import uet.oop.bomberman.entities.player.Bomber;
 import uet.oop.bomberman.graphics.Sprite;
 
 import java.util.ArrayList;

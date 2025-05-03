@@ -3,6 +3,7 @@ package uet.oop.bomberman.entities.bomb;
 import  javafx.scene.image.Image;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntitySetManagement;
+import uet.oop.bomberman.entities.enemies.Enemy;
 import uet.oop.bomberman.entities.map.mapblock.Brick;
 import uet.oop.bomberman.entities.map.mapblock.Wall;
 import uet.oop.bomberman.graphics.Sprite;

@@ -2,9 +2,17 @@ package uet.oop.bomberman.entities.map;
 
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.entities.EntitySetManagement;
+import uet.oop.bomberman.entities.enemies.Chicken;
+import uet.oop.bomberman.entities.enemies.Pineapple;
+import uet.oop.bomberman.entities.enemies.Strawberry;
+import uet.oop.bomberman.entities.items.BombItem;
+import uet.oop.bomberman.entities.items.FlameItem;
+import uet.oop.bomberman.entities.items.SpeedItem;
 import uet.oop.bomberman.entities.map.mapblock.Grass;
 import uet.oop.bomberman.entities.map.mapblock.Wall;
 import uet.oop.bomberman.entities.map.mapblock.Brick;
+import uet.oop.bomberman.entities.player.Bomber;
+import uet.oop.bomberman.entities.portal.Portal;
 import uet.oop.bomberman.graphics.Sprite;
 
 import java.io.BufferedReader;
@@ -107,3 +115,4 @@ public class Map {
         System.out.println(map2D[5][16]);
     }
 }
+

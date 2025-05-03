@@ -179,7 +179,7 @@ public class Bomb extends Entity {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    Sound.playSoundForRate("explosion", 1500);
+//                    Sound.playSound("explosion", 1500);
                 }
             }, 3010);
 
