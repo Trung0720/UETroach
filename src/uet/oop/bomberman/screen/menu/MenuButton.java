@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import uet.oop.bomberman.sound.Sound;
 
 import java.io.InputStream;
 
@@ -15,12 +16,14 @@ public class MenuButton extends Button {
     private final String FONT_PATH = "/font/wheaton capitals.otf";
     private final String BUTTON = "/menu/button.png";
     private final String BUTTON_PRESSED = "/menu/button_pressed.png";
+    private final String BUTTON_PRESSED_SOUND = "res/sound/button_pressed.mp3";
+    private final String BUTTON_RELEASED_SOUND = "res/sound/button_released.mp3";
     private final int BUTTON_FONT_SIZE = 45;
     private final int BUTTON_WIDTH = 380;
     private final int BUTTON_HEIGHT = 98;
     private final int BUTTON_HEIGHT_PRESSED = 90;
 
-    private ImageView buttonImageView;
+    private final ImageView buttonImageView;
 
     public MenuButton(String text) {
         setPrefWidth(BUTTON_WIDTH);
@@ -53,30 +56,26 @@ public class MenuButton extends Button {
         }
     }
 
-    private void setButtonPressed() {
-        buttonImageView.setImage(new Image(BUTTON_PRESSED));
-        setPrefHeight(BUTTON_HEIGHT_PRESSED);
-        buttonImageView.setFitHeight(getPrefHeight());
-        setLayoutY(getLayoutY() + (BUTTON_HEIGHT - BUTTON_HEIGHT_PRESSED));
-    }
-
-    private void setButtonReleased() {
-        buttonImageView.setImage(new Image(BUTTON));
-        setPrefHeight(BUTTON_HEIGHT);
-        buttonImageView.setFitHeight(getPrefHeight());
-        setLayoutY(getLayoutY() - (BUTTON_HEIGHT - BUTTON_HEIGHT_PRESSED));
-    }
-
     private void eventHandler() {
         setOnMousePressed(mouseEvent -> {
             if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
-                setButtonPressed();
+                buttonImageView.setImage(new Image(BUTTON_PRESSED));
+                setPrefHeight(BUTTON_HEIGHT_PRESSED);
+                buttonImageView.setFitHeight(getPrefHeight());
+                setLayoutY(getLayoutY() + (BUTTON_HEIGHT - BUTTON_HEIGHT_PRESSED));
+
+                Sound.playSoundTillEnd(BUTTON_PRESSED_SOUND);
             }
         });
 
         setOnMouseReleased(mouseEvent -> {
             if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
-                setButtonReleased();
+                buttonImageView.setImage(new Image(BUTTON));
+                setPrefHeight(BUTTON_HEIGHT);
+                buttonImageView.setFitHeight(getPrefHeight());
+                setLayoutY(getLayoutY() - (BUTTON_HEIGHT - BUTTON_HEIGHT_PRESSED));
+
+                Sound.playSoundTillEnd(BUTTON_RELEASED_SOUND);
             }
         });
 
