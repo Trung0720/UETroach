@@ -17,7 +17,7 @@ public class Enemy extends Entity implements Move {
     public static final int DOWN = 3;
     protected int keepMoving = 0;
     protected int deathCount = 0;
-    private int speed = 2;
+    private int speed = 4;
     private int speedX = 0;
     private int speedY = 0;
     private boolean isAlive = true;
@@ -104,8 +104,8 @@ public class Enemy extends Entity implements Move {
 
             boolean blocked = checkBoundBomb() || checkBoundBrick() || checkBoundWall();
 
-            x += tmpX;
-            y += tmpY;
+            x = tmpX;
+            y = tmpY;
             if (!blocked) {
                 valid.add(dir);
             }
