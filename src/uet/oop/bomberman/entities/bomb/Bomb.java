@@ -13,6 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Bomb extends Entity {
+    private static final String EXPLOSION_SOUND = "res/sound/explosion.wav";
     public static int radius = 1;
     public static int animation = 0;
     private boolean passOver = true;
@@ -179,7 +180,7 @@ public class Bomb extends Entity {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-//                    Sound.playSound("explosion", 1500);
+                    Sound.playSoundForRate(EXPLOSION_SOUND, 1.5);
                 }
             }, 3010);
 

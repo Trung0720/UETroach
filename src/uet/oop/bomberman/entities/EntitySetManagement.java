@@ -1,7 +1,10 @@
 package uet.oop.bomberman.entities;
 
+import javafx.scene.canvas.GraphicsContext;
+import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.entities.bomb.Bomb;
+import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.entities.enemies.Enemy;
 import uet.oop.bomberman.entities.items.Item;
 import uet.oop.bomberman.entities.map.mapblock.Brick;
@@ -40,7 +43,7 @@ public class EntitySetManagement {
         int sizeBefore = enemyList.size();
         enemyList.removeIf(enemy -> !enemy.isAlive());
         int removed = sizeBefore - enemyList.size();
-        Main.score += removed * 10;
+        GameLoop.score += removed * 10;
     }
 
     public void removeBrick() {
@@ -63,6 +66,46 @@ public class EntitySetManagement {
         itemList.clear();
         bomberMan = null;
         portal = null;
+    }
+
+    public void updateALl() {
+        try {
+            grassList.forEach(Grass::update);
+            wallList.forEach(Wall::update);
+            portal.update();
+            itemList.forEach(Item::update);
+            brickList.forEach(Brick::update);
+            bombList.forEach(Bomb::update);
+            bombList.forEach(bomb -> {
+                bomb.getAllFlame().forEach(Flame::update);
+            });
+            enemyList.forEach(Enemy::update);
+            bomberMan.update();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void renderAll(GraphicsContext graphicsContext) {
+        try {
+            graphicsContext.clearRect(0, 0,
+                    Main.WIDTH * Sprite.SCALED_SIZE,
+                    Main.HEIGHT * Sprite.SCALED_SIZE
+            );
+            grassList.forEach(grass -> grass.render(graphicsContext));
+            wallList.forEach(wall -> wall.render(graphicsContext));
+            portal.render(graphicsContext);
+            itemList.forEach(item -> item.render(graphicsContext));
+            brickList.forEach(brick -> brick.render(graphicsContext));
+            bombList.forEach(bomb -> bomb.render(graphicsContext));
+            bombList.forEach(bomb -> {
+                bomb.getAllFlame().forEach(flame -> flame.render(graphicsContext));
+            });
+            enemyList.forEach(enemy -> enemy.render(graphicsContext));
+            bomberMan.render(graphicsContext);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public List<Wall> getWallList() {

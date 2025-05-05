@@ -22,12 +22,11 @@ public class Main extends Application {
     public static final String BACKGROUND_MUSIC = "res/sound/backGroundSound.wav";
     public static int cameraX = 0;
     public static int cameraY = 0;
+    public static Scene scene;
     public static Group root = new Group();
     public static Canvas canvas;
     public static GraphicsContext graphicsContext;
-    public static int score = 0;
-    public static int currentLevel = 0;
-    public static int nextLevel = 1;
+    public static MenuView menuView;
 
 
     public static void main(String[] args) {
@@ -38,7 +37,7 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.getIcons().add(new Image(ICON));
 
-        Scene scene = new Scene(
+        scene = new Scene(
                 root,
                 Sprite.SCALED_SIZE * CAMERA_WIDTH,
                 Sprite.SCALED_SIZE * CAMERA_HEIGHT
@@ -60,6 +59,6 @@ public class Main extends Application {
         GameLoop gameLoop = new GameLoop(stage);
         gameLoop.start();
 
-        MenuView menuView = new MenuView(root, gameLoop);
+        menuView = new MenuView(root, gameLoop);
     }
 }

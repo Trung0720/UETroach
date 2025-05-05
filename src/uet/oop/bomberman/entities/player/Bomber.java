@@ -2,6 +2,7 @@ package uet.oop.bomberman.entities.player;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.camera.CameraTranslate;
 import uet.oop.bomberman.entities.Entity;
@@ -256,7 +257,7 @@ public class Bomber extends Entity implements Move {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    System.exit(0);
+                    GameLoop.gameStatus = 2;
                 }
             }, 2000L);
         }

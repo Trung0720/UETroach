@@ -1,11 +1,15 @@
 package uet.oop.bomberman.screen;
 
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.control.Slider;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.sound.Sound;
@@ -69,13 +73,24 @@ public class StatusBar {
             Sound.setSoundVolume(newVal.doubleValue());
         });
 
+        volumeSlider.setFocusTraversable(false);
+        volumeSlider.valueChangingProperty().addListener((obs, wasChanging, isChanging) -> {
+            if (!isChanging) {
+                Platform.runLater(() -> {
+                    volumeSlider.getScene().getRoot().requestFocus();
+                });
+            }
+        });
         return volumeSlider;
     }
 
     public static void updateStatusBar(long now) {
-        level.setText("LEVEL: " + Main.currentLevel);
+        level.setText("LEVEL: " + GameLoop.currentLevel);
         time.setText("TIME: " + countDown / 100);
-        score.setText("SCORE: " + Main.score);
-        countDown -= 2; // Đếm ngược theo 60FPS
+        score.setText("SCORE: " + GameLoop.score);
+        countDown -= 2;// Đếm ngược theo 60FPS
+        if (countDown == 0) {
+            GameLoop.gameStatus = 2;
+        }
     }
 }

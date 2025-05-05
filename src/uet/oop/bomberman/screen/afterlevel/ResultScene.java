@@ -1,4 +1,4 @@
-package uet.oop.bomberman.screen;
+package uet.oop.bomberman.screen.afterlevel;
 
 import javafx.animation.PauseTransition;
 import javafx.scene.effect.DropShadow;
@@ -9,12 +9,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
 
 import java.io.InputStream;
 
-public class AfterLevelScene {
+public class ResultScene {
     private static final int WIDTH = Main.CAMERA_WIDTH * Sprite.SCALED_SIZE;
     private static final int HEIGHT = Main.CAMERA_HEIGHT * Sprite.SCALED_SIZE;
     private static final String FONT_PATH = "/font/Pixel Game.otf";
@@ -23,12 +24,16 @@ public class AfterLevelScene {
     public static Text levelUp, gameOver, win, score;
     private static final int TIME = 2;
 
-    public static void renderScene() {
+    public static void renderScene(ResultType resultType) {
         pane = new Pane();
         pane.setPrefSize(WIDTH, HEIGHT);
         createBackGround();
 
-        // missing render
+        switch (resultType) {
+            case LEVEL_UP -> renderLevelUp();
+            case WIN -> renderWin();
+            case LOSE -> renderGameOver();
+        }
 
         Main.root.getChildren().add(pane);
 
@@ -55,7 +60,7 @@ public class AfterLevelScene {
         text.setFill(Color.SNOW);
         text.setEffect(new DropShadow());
 
-        InputStream fontStream = AfterLevelScene.class.getResourceAsStream(FONT_PATH);
+        InputStream fontStream = ResultScene.class.getResourceAsStream(FONT_PATH);
         if (fontStream != null) {
             text.setFont(Font.loadFont(fontStream, size));
         } else {
@@ -67,7 +72,7 @@ public class AfterLevelScene {
     }
 
     private static void renderLevelUp() {
-        levelUp = createText("LEVEL " + Main.nextLevel, 200);
+        levelUp = createText("LEVEL " + GameLoop.nextLevel, 200);
         levelUp.setX(WIDTH / 2.0 - 250);
         levelUp.setY(HEIGHT / 2.0);
         pane.getChildren().add(levelUp);
@@ -93,16 +98,16 @@ public class AfterLevelScene {
 
     private static void renderScore() {
         int setBack;
-        if (Main.score > 999) {
+        if (GameLoop.score > 999) {
             setBack = 50;
-        } else if (Main.score > 99) {
+        } else if (GameLoop.score > 99) {
             setBack = 30;
-        } else if (Main.score > 9) {
+        } else if (GameLoop.score > 9) {
             setBack = 10;
         } else {
             setBack = -5;
         }
-        score = createText("SCORE: " + Main.score, 100);
+        score = createText("SCORE: " + GameLoop.score, 100);
         score.setX(WIDTH / 2.0 - 150 - setBack);
         score.setY(HEIGHT / 2.0 + 50);
     }

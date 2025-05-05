@@ -1,5 +1,6 @@
 package uet.oop.bomberman.entities.map;
 
+import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.entities.EntitySetManagement;
 import uet.oop.bomberman.entities.enemies.Chicken;
@@ -41,7 +42,7 @@ public class Map {
     }
 
     public static void fillMapImage(char[][] map2D) {
-        EntitySetManagement esm = EntitySetManagement.getEntitySetManagement();
+        EntitySetManagement esm = GameLoop.entitySetManagement;
 
         for (int i = 0; i < Main.HEIGHT; i++) {
             for (int j = 0; j < Main.WIDTH; j++) {
@@ -105,7 +106,7 @@ public class Map {
     }
 
     public static void main(String[] args) {
-        createMapByLevel(2);
+        createMapByLevel(1);
         for (int i = 0; i < 13; i++) {
             for (int j = 0; j < 31; j++) {
                 System.out.print(map2D[i][j]);
