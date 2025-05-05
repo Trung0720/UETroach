@@ -40,6 +40,7 @@ public class GameLoop extends AnimationTimer {
 
             if (gameStatus == 1) {
                 if (currentLevel < nextLevel) {
+                    ResultScene.renderScene(ResultType.LEVEL_UP);
                     levelUp(Main.scene);
                 }
                 update();
