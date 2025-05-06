@@ -6,6 +6,7 @@ import uet.oop.bomberman.entities.enemies.search.AStar;
 import uet.oop.bomberman.entities.enemies.search.Search;
 import uet.oop.bomberman.entities.map.Map;
 import uet.oop.bomberman.graphics.Sprite;
+
 //Oneal
 public class Chicken extends Enemy {
     private int slow = 0;
@@ -83,26 +84,27 @@ public class Chicken extends Enemy {
     }
 
     public void move(Search.Position pair) {
-        if (slow % 2 != 0) {
-            return;
+        int tmpX = pair.getCol() * Sprite.SCALED_SIZE;
+        int tmpY = pair.getRow() * Sprite.SCALED_SIZE;
+
+        if (this.y < tmpY) {
+            if (slow % 2 == 0) {
+                goDown();
+            }
         }
-        int targetX = pair.getC() * Sprite.SCALED_SIZE;
-        int targetY = pair.getR() * Sprite.SCALED_SIZE;
-
-        int dx = targetX - this.x;
-        int dy = targetY - this.y;
-
-        if (Math.abs(dx) > Math.abs(dy)) {
-            if (dx > 0) {
-                goRight();
-            } else if (dx < 0) {
+        if (this.y > tmpY) {
+            if (slow % 2 == 0) {
+                goUp();
+            }
+        }
+        if (this.x > tmpX) {
+            if (slow % 2 == 0) {
                 goLeft();
             }
-        } else {
-            if (dy > 0) {
-                goDown();
-            } else if (dy < 0) {
-                goUp();
+        }
+        if (this.x < tmpX) {
+            if (slow % 2 == 0) {
+                goRight();
             }
         }
 
@@ -112,7 +114,7 @@ public class Chicken extends Enemy {
     }
 
     public void moveFree() {
-        this.betterDirection();
+        this.randomDirection();
         if (this.getSpeedX() > 0) {
             goRight();
         } else if (this.getSpeedX() < 0) {
@@ -128,16 +130,20 @@ public class Chicken extends Enemy {
     @Override
     public void update() {
         super.update();
-        keepMoving = keepMoving > 100 ? 0 : keepMoving + 1;
+
+        keepMoving = (keepMoving + 1) % 101;
+
         int destRow = EntitySetManagement.getEntitySetManagement().getBomberMan().getY() / Sprite.SCALED_SIZE;
         int destCol = EntitySetManagement.getEntitySetManagement().getBomberMan().getX() / Sprite.SCALED_SIZE;
 
         Search.Position bomber = nextPosition(destRow, destCol);
-        slow = slow > 100 ? 0 : slow + 1;
-        if (this.x == bomber.getC() * Sprite.SCALED_SIZE && this.y == bomber.getR() * Sprite.SCALED_SIZE) {
+        slow = (slow + 1) % 101;
+
+        if (this.x == bomber.getCol() * Sprite.SCALED_SIZE && this.y == bomber.getRow() * Sprite.SCALED_SIZE) {
             moveFree();
         } else {
             move(bomber);
         }
     }
 }
+

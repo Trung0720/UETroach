@@ -84,69 +84,69 @@ public class Enemy extends Entity implements Move {
         }
     }
 
-    public void betterDirection() {
-        Random random = new Random();
-        int[] directions = {UP, DOWN, LEFT, RIGHT};
+//    public void betterDirection() {
+//        Random random = new Random();
+//        int[] directions = {UP, DOWN, LEFT, RIGHT};
+//
+//        List<Integer> valid = new ArrayList<>();
+//        for (int dir : directions) {
+//            if (dir == oppositeDirection(lastDirection)) {
+//                continue;
+//            }
+//            int tmpX = x, tmpY = y;
+//            int tmpSpeedX = 0, tmpSpeedY = 0;
+//            switch (dir) {
+//                case RIGHT -> tmpSpeedX = this.getSpeed();
+//                case LEFT -> tmpSpeedX = -this.getSpeed();
+//                case UP -> tmpSpeedY = this.getSpeed();
+//                case DOWN -> tmpSpeedY = -this.getSpeed();
+//            }
+//            x += tmpSpeedX;
+//            y += tmpSpeedY;
+//
+//            boolean blocked = checkBoundBomb() || checkBoundBrick() || checkBoundWall();
+//
+//            x = tmpX;
+//            y = tmpY;
+//            if (!blocked) {
+//                valid.add(dir);
+//            }
+//        }
+//        if (!valid.isEmpty()) {
+//            int choose = valid.get(random.nextInt(valid.size()));
+//            switch (choose) {
+//                case RIGHT -> {
+//                    this.speedX = getSpeed();
+//                    this.speedY = 0;
+//                }
+//                case LEFT -> {
+//                    this.speedX = -getSpeed();
+//                    this.speedY = 0;
+//                }
+//                case UP -> {
+//                    this.speedX = 0;
+//                    this.speedY = getSpeed();
+//                }
+//                case DOWN -> {
+//                    this.speedX = 0;
+//                    this.speedY = -getSpeed();
+//                }
+//            }
+//            lastDirection = choose;
+//        } else {
+//            randomDirection();
+//        }
+//    }
 
-        List<Integer> valid = new ArrayList<>();
-        for (int dir : directions) {
-            if (dir == oppositeDirection(lastDirection)) {
-                continue;
-            }
-            int tmpX = x, tmpY = y;
-            int tmpSpeedX = 0, tmpSpeedY = 0;
-            switch (dir) {
-                case RIGHT -> tmpSpeedX = this.getSpeed();
-                case LEFT -> tmpSpeedX = -this.getSpeed();
-                case UP -> tmpSpeedY = this.getSpeed();
-                case DOWN -> tmpSpeedY = -this.getSpeed();
-            }
-            x += tmpSpeedX;
-            y += tmpSpeedY;
-
-            boolean blocked = checkBoundBomb() || checkBoundBrick() || checkBoundWall();
-
-            x = tmpX;
-            y = tmpY;
-            if (!blocked) {
-                valid.add(dir);
-            }
-        }
-        if (!valid.isEmpty()) {
-            int choose = valid.get(random.nextInt(valid.size()));
-            switch (choose) {
-                case RIGHT -> {
-                    this.speedX = getSpeed();
-                    this.speedY = 0;
-                }
-                case LEFT -> {
-                    this.speedX = -getSpeed();
-                    this.speedY = 0;
-                }
-                case UP -> {
-                    this.speedX = 0;
-                    this.speedY = getSpeed();
-                }
-                case DOWN -> {
-                    this.speedX = 0;
-                    this.speedY = -getSpeed();
-                }
-            }
-            lastDirection = choose;
-        } else {
-            randomDirection();
-        }
-    }
-
-    private int oppositeDirection(int direction) {
-        return switch (direction) {
-            case UP -> DOWN;
-            case DOWN -> UP;
-            case LEFT -> RIGHT;
-            case RIGHT -> LEFT;
-            default -> -1;
-        };
-    }
+//    private int oppositeDirection(int direction) {
+//        return switch (direction) {
+//            case UP -> DOWN;
+//            case DOWN -> UP;
+//            case LEFT -> RIGHT;
+//            case RIGHT -> LEFT;
+//            default -> -1;
+//        };
+//    }
 
     public void randomSpeed() {
         Random random = new Random();
@@ -166,7 +166,7 @@ public class Enemy extends Entity implements Move {
                 if (getY() % Sprite.SCALED_SIZE != 0) {
                     this.y -= this.getSpeedY();
                 }
-                betterDirection();
+                randomDirection();
             }
         } else {
             this.x += this.getSpeedX();
@@ -174,7 +174,7 @@ public class Enemy extends Entity implements Move {
                 if (getX() % Sprite.SCALED_SIZE != 0) {
                     this.x -= this.getSpeedX();
                 }
-                betterDirection();
+                randomDirection();
             }
         }
     }
