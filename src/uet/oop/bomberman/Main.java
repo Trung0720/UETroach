@@ -19,7 +19,7 @@ public class Main extends Application {
     public static final int CAMERA_HEIGHT = 13;
     public static final int STATUS_BAR_HEIGHT = 32;
     public static final String ICON = "/sprites/Bomber/koala_down.png";
-    public static final String BACKGROUND_MUSIC = "res/sound/backGroundSound.wav";
+    public static final String BACKGROUND_MUSIC = "res/sound/back_ground_sound.wav";
     public static int cameraX = 0;
     public static int cameraY = 0;
     public static Scene scene;
