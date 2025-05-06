@@ -11,14 +11,18 @@ import uet.oop.bomberman.entities.Move;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.map.Map;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class Bomber extends Entity implements Move {
-    private int speed = 4;
+    private static final String BOMB_PLANTED_SOUND = "res/sound/bomb_planted.wav";
+    private static final String DEATH_SOUND = "res/sound/death_sound.mp3";
+    private int speed = 2;
     private boolean isAlive = true;
+    private boolean deathHandled = false;
     private int keepMoving = 0;
     private int numeberOfBomb = 1;
     private int countDeathUpdate = 1;
@@ -218,7 +222,7 @@ public class Bomber extends Entity implements Move {
                 }
             }
             try {
-//                Sound.playSound("bombplanted", 1000);
+                Sound.playSoundTillEnd(BOMB_PLANTED_SOUND);
                 TimerTask task = new TimerTask() {
                     @Override
                     public void run() {
@@ -242,7 +246,9 @@ public class Bomber extends Entity implements Move {
 
     @Override
     public void update() {
-        if (!this.isAlive) {
+        if (!this.isAlive && !deathHandled) {
+            deathHandled = true;
+            Sound.playSoundTillEnd(DEATH_SOUND);
             TimerTask timeDeath = new TimerTask() {
                 @Override
                 public void run() {
@@ -250,14 +256,11 @@ public class Bomber extends Entity implements Move {
                 }
             };
             Timer timer = new Timer();
-            if (countDeathUpdate > 0) {
-                timer.schedule(timeDeath, 100L);
-                countDeathUpdate--;
-            }
+            timer.schedule(timeDeath, 100L);
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    GameLoop.gameStatus = 2;
+                    GameLoop.gameStatus = GameLoop.STATUS_GAME_OVER;
                 }
             }, 2000L);
         }
