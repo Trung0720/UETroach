@@ -5,12 +5,14 @@ import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntitySetManagement;
 import uet.oop.bomberman.entities.Move;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Enemy extends Entity implements Move {
+    private static final String DEATH_SOUND = "res/sound/enemy_death.wav";
     public static final int LEFT = 0;
     public static final int RIGHT = 1;
     public static final int UP = 2;
@@ -181,7 +183,7 @@ public class Enemy extends Entity implements Move {
     public void update() {
         if (!this.isAlive) {
             if (deathCount == 0) {
-//                Sound.playSound("enemyDeath", 1500);
+                Sound.playSoundTillEnd(DEATH_SOUND);
                 deathCount = 1;
             }
         }

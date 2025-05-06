@@ -69,13 +69,13 @@ public class Bomb extends Entity {
             Flame flame = new Flame(this.x / Sprite.SCALED_SIZE, this.y / Sprite.SCALED_SIZE + i,
                     (i == radius) ?
                             Sprite.movingSprite(
-                                    Bomb.animation, Sprite.SCALED_SIZE * 3 / 2,
+                                    animate, Sprite.SCALED_SIZE,
                                     Sprite.explosion_vertical_down_last_1,
                                     Sprite.explosion_vertical_down_last_2,
                                     Sprite.explosion_vertical_down_last_3
                             ).getFxImage() :
                             Sprite.movingSprite(
-                                    Bomb.animation, Sprite.SCALED_SIZE * 3 / 2,
+                                    animate, Sprite.SCALED_SIZE,
                                     Sprite.explosion_vertical_1,
                                     Sprite.explosion_vertical_2,
                                     Sprite.explosion_vertical_3
@@ -95,21 +95,18 @@ public class Bomb extends Entity {
             Flame flame = new Flame(this.x / Sprite.SCALED_SIZE, this.y / Sprite.SCALED_SIZE - i,
                     (i == radius) ?
                             Sprite.movingSprite(
-                                    Bomb.animation, Sprite.SCALED_SIZE * 3 / 2,
+                                    animate, Sprite.SCALED_SIZE,
                                     Sprite.explosion_vertical_top_last_1,
                                     Sprite.explosion_vertical_top_last_2,
                                     Sprite.explosion_vertical_top_last_3
                             ).getFxImage() :
                             Sprite.movingSprite(
-                                    Bomb.animation, Sprite.SCALED_SIZE * 3 / 2,
+                                    animate, Sprite.SCALED_SIZE,
                                     Sprite.explosion_vertical_1,
                                     Sprite.explosion_vertical_2,
                                     Sprite.explosion_vertical_3
                             ).getFxImage(), (i == radius) ? Flame.F_upLast : Flame.F_up
             );
-            if (i == radius) {
-
-            }
             if (flame.checkBoundWall()) {
                 break;
             }
@@ -123,13 +120,13 @@ public class Bomb extends Entity {
             Flame flame = new Flame(this.x / Sprite.SCALED_SIZE + i, this.y / Sprite.SCALED_SIZE,
                     (i == radius) ?
                             Sprite.movingSprite(
-                                    Bomb.animation, Sprite.SCALED_SIZE * 3 / 2,
+                                    animate, Sprite.SCALED_SIZE,
                                     Sprite.explosion_horizontal_right_last_1,
                                     Sprite.explosion_horizontal_right_last_2,
                                     Sprite.explosion_horizontal_right_last_3
                             ).getFxImage() :
                             Sprite.movingSprite(
-                                    Bomb.animation, Sprite.SCALED_SIZE * 3 / 2,
+                                    animate, Sprite.SCALED_SIZE,
                                     Sprite.explosion_horizontal_1,
                                     Sprite.explosion_horizontal_2,
                                     Sprite.explosion_horizontal_3
@@ -148,13 +145,13 @@ public class Bomb extends Entity {
             Flame flame = new Flame(this.x / Sprite.SCALED_SIZE - i, this.y / Sprite.SCALED_SIZE,
                     (i == radius) ?
                             Sprite.movingSprite(
-                                    Bomb.animation, Sprite.SCALED_SIZE * 3 / 2,
+                                    animate, Sprite.SCALED_SIZE,
                                     Sprite.explosion_horizontal_left_last_1,
                                     Sprite.explosion_horizontal_left_last_2,
                                     Sprite.explosion_horizontal_left_last_3
                             ).getFxImage() :
                             Sprite.movingSprite(
-                                    Bomb.animation, Sprite.SCALED_SIZE * 3 / 2,
+                                    animate, Sprite.SCALED_SIZE,
                                     Sprite.explosion_horizontal_1,
                                     Sprite.explosion_horizontal_2,
                                     Sprite.explosion_horizontal_3
@@ -180,7 +177,7 @@ public class Bomb extends Entity {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    Sound.playSoundForRate(EXPLOSION_SOUND, 1.5);
+                    Sound.playSoundForRate(EXPLOSION_SOUND, 2);
                 }
             }, 3010);
 
