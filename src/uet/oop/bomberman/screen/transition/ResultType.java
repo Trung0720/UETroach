@@ -1,4 +1,4 @@
-package uet.oop.bomberman.screen.afterlevel;
+package uet.oop.bomberman.screen.transition;
 
 public enum ResultType {
     WIN,
