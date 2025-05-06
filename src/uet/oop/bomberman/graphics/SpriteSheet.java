@@ -5,6 +5,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Source code base.
+ */
 public class SpriteSheet {
     public static SpriteSheet tiles = new SpriteSheet(256, "/textures/classic.png");
 

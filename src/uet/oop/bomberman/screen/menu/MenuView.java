@@ -84,6 +84,11 @@ public class MenuView {
         if (sceneToHide != null && sceneToHide != menuSubScene) {
             sceneToHide.fadeOut();
         }
+
+        if (menuSubScene == scoresSubScene) {
+            scoresSubScene.updateScoresContent();
+        }
+
         if (sceneToHide != menuSubScene) {
             menuSubScene.fadeIn();
         }

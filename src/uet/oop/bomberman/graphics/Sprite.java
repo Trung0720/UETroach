@@ -4,6 +4,9 @@ import javafx.scene.image.*;
 
 import java.util.Arrays;
 
+/**
+ * Source code base.
+ */
 public class Sprite {
 
     public static final int DEFAULT_SIZE = 16;
