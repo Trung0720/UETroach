@@ -28,10 +28,9 @@ x - Portal
 
 Character:
 p - Bomber
-1 - Balloon
-2 - Oneal
-3 - Minvo
-4 - Kondorian
+1 - Pineapple
+2 - Chicken
+3 - Strawberry
 
 
 Items:
