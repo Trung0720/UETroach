@@ -1,8 +1,10 @@
 package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.PauseTransition;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import uet.oop.bomberman.camera.CameraTranslate;
 import uet.oop.bomberman.controller.PlayerController;
 import uet.oop.bomberman.entities.EntitySetManagement;
@@ -12,6 +14,9 @@ import uet.oop.bomberman.screen.afterlevel.ResultScene;
 import uet.oop.bomberman.screen.afterlevel.ResultType;
 
 public class GameLoop extends AnimationTimer {
+    public static final int STATUS_PLAYING = 1;
+    public static final int STATUS_GAME_OVER = 2;
+    public static final int STATUS_TRANSITION = 3;
     private final Stage stage;
     public static EntitySetManagement entitySetManagement = EntitySetManagement.getEntitySetManagement();
     public static int gameStatus = 0;
@@ -38,17 +43,34 @@ public class GameLoop extends AnimationTimer {
             lastUpdate += frameDuration;
             stage.setTitle(calculateFPSandSCORE(now));
 
-            if (gameStatus == 1) {
+            if (gameStatus == STATUS_PLAYING) {
                 if (currentLevel < nextLevel) {
+                    gameStatus = STATUS_TRANSITION;
+                    ResultScene.renderScene(ResultType.LEVEL_UP);
+
+                    PauseTransition delay = new PauseTransition(Duration.seconds(2));
+                    delay.setOnFinished(actionEvent -> {
+                        levelUp(Main.scene);
+                        gameStatus = STATUS_PLAYING;
+                    });
+
+                    delay.play();
+                    return;
+
+                    /*
                     ResultScene.renderScene(ResultType.LEVEL_UP);
                     levelUp(Main.scene);
+                     */
                 }
                 update();
                 render();
                 StatusBar.updateStatusBar(now);
-            } else if (gameStatus == 2) {
+            } else if (gameStatus == STATUS_GAME_OVER) {
                 ResultScene.renderScene(ResultType.LOSE);
-                restart();
+                gameStatus = STATUS_TRANSITION;
+                PauseTransition delay = new PauseTransition(Duration.seconds(2));
+                delay.setOnFinished(actionEvent -> restart());
+                delay.play();
             }
         }
     }

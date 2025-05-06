@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Sound {
     private static final ArrayList<MediaPlayer> activeSounds = new ArrayList<>();
     private static MediaPlayer foreverSound = null;
-    private static double soundVolume = 0.2;
+    private static double soundVolume = 0.4;
 
     public static double getSoundVolume() {
         return soundVolume;

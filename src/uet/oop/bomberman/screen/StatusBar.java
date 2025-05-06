@@ -90,7 +90,7 @@ public class StatusBar {
         score.setText("SCORE: " + GameLoop.score);
         countDown -= 2;// Đếm ngược theo 60FPS
         if (countDown == 0) {
-            GameLoop.gameStatus = 2;
+            GameLoop.gameStatus = GameLoop.STATUS_GAME_OVER;
         }
     }
 }

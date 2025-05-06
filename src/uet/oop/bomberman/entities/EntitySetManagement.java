@@ -1,6 +1,7 @@
 package uet.oop.bomberman.entities;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.transform.Affine;
 import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.entities.bomb.Bomb;
@@ -75,10 +76,10 @@ public class EntitySetManagement {
             portal.update();
             itemList.forEach(Item::update);
             brickList.forEach(Brick::update);
-            bombList.forEach(Bomb::update);
             bombList.forEach(bomb -> {
                 bomb.getAllFlame().forEach(Flame::update);
             });
+            bombList.forEach(Bomb::update);
             enemyList.forEach(Enemy::update);
             bomberMan.update();
         } catch (Exception e) {
@@ -88,19 +89,23 @@ public class EntitySetManagement {
 
     public void renderAll(GraphicsContext graphicsContext) {
         try {
+            graphicsContext.save();
+            graphicsContext.setTransform(new Affine());
             graphicsContext.clearRect(0, 0,
                     Main.WIDTH * Sprite.SCALED_SIZE,
                     Main.HEIGHT * Sprite.SCALED_SIZE
             );
+            graphicsContext.restore();
+
             grassList.forEach(grass -> grass.render(graphicsContext));
             wallList.forEach(wall -> wall.render(graphicsContext));
             portal.render(graphicsContext);
             itemList.forEach(item -> item.render(graphicsContext));
             brickList.forEach(brick -> brick.render(graphicsContext));
-            bombList.forEach(bomb -> bomb.render(graphicsContext));
             bombList.forEach(bomb -> {
                 bomb.getAllFlame().forEach(flame -> flame.render(graphicsContext));
             });
+            bombList.forEach(bomb -> bomb.render(graphicsContext));
             enemyList.forEach(enemy -> enemy.render(graphicsContext));
             bomberMan.render(graphicsContext);
         } catch (Exception e) {

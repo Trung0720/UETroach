@@ -12,6 +12,7 @@ import javafx.util.Duration;
 import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.io.InputStream;
 
@@ -20,6 +21,8 @@ public class ResultScene {
     private static final int HEIGHT = Main.CAMERA_HEIGHT * Sprite.SCALED_SIZE;
     private static final String FONT_PATH = "/font/Pixel Game.otf";
     private static final String BACKGROUND_IMAGE = "/levels/blurred_background.png";
+    private static final String LEVEL_UP_SOUND = "res/sound/level_up.mp3";
+    private static final String GAME_OVER_SOUND = "res/sound/game_over.mp3";
     private static Pane pane;
     public static Text levelUp, gameOver, win, score;
     private static final int TIME = 2;
@@ -72,6 +75,7 @@ public class ResultScene {
     }
 
     private static void renderLevelUp() {
+        Sound.playSoundTillEnd(LEVEL_UP_SOUND);
         levelUp = createText("LEVEL " + GameLoop.nextLevel, 200);
         levelUp.setX(WIDTH / 2.0 - 250);
         levelUp.setY(HEIGHT / 2.0);
@@ -79,6 +83,7 @@ public class ResultScene {
     }
 
     private static void renderGameOver() {
+        Sound.playSoundTillEnd(GAME_OVER_SOUND);
         renderScore();
         gameOver = createText("GAME OVER!", 200);
         gameOver.setX(WIDTH / 2.0 - 400);
