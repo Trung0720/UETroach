@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import uet.oop.bomberman.entities.EntitySetManagement;
 import uet.oop.bomberman.entities.map.Map;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 
 import java.util.Timer;
@@ -32,7 +33,7 @@ public class SpeedItem extends Item {
     }
 
     private void handleItemCollection() {
-//        Sound.playSound("itemcollection", 1500);
+        Sound.playSoundTillEnd(ITEM_COLLECTION);
         Map.map2D[y / Sprite.SCALED_SIZE][x / Sprite.SCALED_SIZE] = ' ';
         int speed = EntitySetManagement.getEntitySetManagement().getBomberMan().getSpeed();
         EntitySetManagement.getEntitySetManagement().getBomberMan().setSpeed(speed + 4);
