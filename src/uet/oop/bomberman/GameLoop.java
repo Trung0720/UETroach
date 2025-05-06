@@ -9,14 +9,17 @@ import uet.oop.bomberman.camera.CameraTranslate;
 import uet.oop.bomberman.controller.PlayerController;
 import uet.oop.bomberman.entities.EntitySetManagement;
 import uet.oop.bomberman.entities.map.Map;
+import uet.oop.bomberman.screen.ScoreSave;
 import uet.oop.bomberman.screen.StatusBar;
-import uet.oop.bomberman.screen.afterlevel.ResultScene;
-import uet.oop.bomberman.screen.afterlevel.ResultType;
+import uet.oop.bomberman.screen.transition.ResultScene;
+import uet.oop.bomberman.screen.transition.ResultType;
 
 public class GameLoop extends AnimationTimer {
+    public static final int MAX_LEVEL = 2;
     public static final int STATUS_PLAYING = 1;
     public static final int STATUS_GAME_OVER = 2;
-    public static final int STATUS_TRANSITION = 3;
+    public static final int STATUS_WIN = 3;
+    public static final int STATUS_TRANSITION = 4;
     private final Stage stage;
     public static EntitySetManagement entitySetManagement = EntitySetManagement.getEntitySetManagement();
     public static int gameStatus = 0;
@@ -44,7 +47,7 @@ public class GameLoop extends AnimationTimer {
             stage.setTitle(calculateFPSandSCORE(now));
 
             if (gameStatus == STATUS_PLAYING) {
-                if (currentLevel < nextLevel) {
+                if (currentLevel < nextLevel && nextLevel < MAX_LEVEL) {
                     gameStatus = STATUS_TRANSITION;
                     ResultScene.renderScene(ResultType.LEVEL_UP);
 
@@ -61,12 +64,20 @@ public class GameLoop extends AnimationTimer {
                     ResultScene.renderScene(ResultType.LEVEL_UP);
                     levelUp(Main.scene);
                      */
+                } else if (nextLevel >= MAX_LEVEL) {
+                    gameStatus = STATUS_WIN;
+                    ScoreSave.saveScore();
+                    ResultScene.renderScene(ResultType.WIN);
+                    restart();
+                    return;
                 }
+
                 update();
                 render();
                 StatusBar.updateStatusBar(now);
             } else if (gameStatus == STATUS_GAME_OVER) {
                 ResultScene.renderScene(ResultType.LOSE);
+                ScoreSave.saveScore();
                 gameStatus = STATUS_TRANSITION;
                 PauseTransition delay = new PauseTransition(Duration.seconds(2));
                 delay.setOnFinished(actionEvent -> restart());
@@ -106,6 +117,7 @@ public class GameLoop extends AnimationTimer {
 
     public static void restart() {
         entitySetManagement = EntitySetManagement.getEntitySetManagement();
+        score = 0;
         currentLevel = 0;
         nextLevel = 1;
         Main.menuView.showMenu();
@@ -113,19 +125,14 @@ public class GameLoop extends AnimationTimer {
     }
 
     public static void levelUp(Scene scene) {
-        if (nextLevel < 4) {
-            entitySetManagement.clearAll();
-            Map.createMapByLevel(nextLevel);
-            currentLevel = nextLevel;
+        entitySetManagement.clearAll();
+        Map.createMapByLevel(nextLevel);
+        currentLevel = nextLevel;
 
-            Main.cameraX = 0;
-            Main.cameraY = 0;
-            CameraTranslate.moveCamera(Main.cameraX, Main.cameraY);
+        Main.cameraX = 0;
+        Main.cameraY = 0;
+        CameraTranslate.moveCamera(Main.cameraX, Main.cameraY);
 
-            PlayerController.playerControl(scene, entitySetManagement.getBomberMan(), entitySetManagement);
-        } else {
-            ResultScene.renderScene(ResultType.WIN);
-            restart();
-        }
+        PlayerController.playerControl(scene, entitySetManagement.getBomberMan(), entitySetManagement);
     }
 }
