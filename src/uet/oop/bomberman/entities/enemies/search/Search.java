@@ -7,39 +7,52 @@ public abstract class Search {
     public static final int COL = 31;
 
     public static class Position {
-        private int r;
-        private int c;
+        private int row;
+        private int col;
 
-        public Position(int r, int c) {
-            this.r = r;
-            this.c = c;
+        public Position(int row, int col) {
+            this.row = row;
+            this.col = col;
         }
 
-        public int getR() {
-            return r;
+        public int getRow() {
+            return row;
         }
 
-        public int getC() {
-            return c;
+        public int getCol() {
+            return col;
+        }
+
+        @Override
+        public int hashCode() {
+            return 31 * row + col;
         }
 
         @Override
         public boolean equals(Object obj) {
             if (this == obj) return true;
-            if (!(obj instanceof Position)) return false;
-            Position p = (Position) obj;
-            return r == p.r && c == p.c;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            Position other = (Position) obj;
+            return row == other.row && col == other.col;
         }
 
         @Override
         public String toString() {
-            return "(" + r + "," + c + ")";
+            return "(" + row + "," + col + ")";
         }
     }
 
     public static class cell {
-        public int parentX = -1, parentY = -1;
+        public int parentX, parentY;
         public double f, g, h;
+
+        public cell() {
+            this.parentX = -1;
+            this.parentY = -1;
+            this.f = Double.MAX_VALUE;
+            this.g = Double.MAX_VALUE;
+            this.h = Double.MAX_VALUE;
+        }
 
         @Override
         public String toString() {
@@ -62,27 +75,27 @@ public abstract class Search {
     }
 
     public static boolean isDestination(Position dest, int r, int c) {
-        return r == dest.getR() && c == dest.getC();
+        return r == dest.getRow() && c == dest.getCol();
     }
 
     public static double calculateDistance(Position dest, int r, int c) {
-        return Math.sqrt(Math.pow(dest.getR() - r, 2) + Math.pow(dest.getC() - c, 2));
+        return Math.sqrt(Math.pow(dest.getRow() - r, 2) + Math.pow(dest.getCol() - c, 2));
     }
 
     public static Position tracePath(AStar.cell[][] cellDetails, Position src, Position dest) {
-        int r = dest.getR();
-        int c = dest.getC();
+        int r = dest.getRow();
+        int c = dest.getCol();
 
         Stack<Position> path = new Stack<>();
         try {
-            while (cellDetails[r][c].parentX != src.getR() || cellDetails[r][c].parentY != src.getC()) {
-                path.push(new Position(r, c));
+            while (cellDetails[r][c].parentX != src.getRow() || cellDetails[r][c].parentY != src.getCol()) {
+                path.add(new Position(r, c));
                 int tmpR = cellDetails[r][c].parentX;
                 int tmpC = cellDetails[r][c].parentY;
                 r = tmpR;
                 c = tmpC;
             }
-//            path.push(new Position(r, c));
+            path.push(new Position(r, c));
             if (!path.isEmpty()) {
                 return path.pop();
             }

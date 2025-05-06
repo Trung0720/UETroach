@@ -1,5 +1,6 @@
 package uet.oop.bomberman.entities.enemies.search;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class AStar extends Search {
@@ -8,7 +9,7 @@ public class AStar extends Search {
             int pi, int pj,
             int i, int j,
             Position dest,
-            double fx, double gx, double hx,
+//            double fx, double gx, double hx,
             cell[][] cellDetails,
             boolean[][] closedList,
             char[][] grid,
@@ -24,13 +25,9 @@ public class AStar extends Search {
         }
 
         if (!closedList[i][j] && isUnBlocked(grid, i, j)) {
-            if (pi != i && pj != j) {
-                gx = cellDetails[pi][pj].g + Math.sqrt(2);
-            } else {
-                gx = cellDetails[pi][pj].g + 1.0;
-            }
-            hx = calculateDistance(dest, i, j);
-            fx = gx + hx;
+            double gx = cellDetails[pi][pj].g + 1.0;
+            double hx = calculateDistance(dest, i, j);
+            double fx = gx + hx;
 
             if (cellDetails[i][j].f == Double.MAX_VALUE || cellDetails[i][j].f > fx) {
                 cellDetails[i][j].f = fx;
@@ -45,13 +42,16 @@ public class AStar extends Search {
     }
 
     public static Position aStarSearch(char[][] grid, Position src, Position dest) {
-        if (!isValid(src.getR(), src.getC()) || !isValid(dest.getR(), dest.getC())) {
+        if (!isValid(src.getRow(), src.getCol())) {
             return src;
         }
-        if (!isUnBlocked(grid, src.getR(), src.getC()) || !isUnBlocked(grid, dest.getR(), dest.getC())) {
+        if (!isValid(dest.getRow(), dest.getCol())) {
             return src;
         }
-        if (isDestination(dest, src.getR(), src.getC())) {
+        if (!isUnBlocked(grid, src.getRow(), src.getCol()) || !isUnBlocked(grid, dest.getRow(), dest.getCol())) {
+            return src;
+        }
+        if (isDestination(dest, src.getRow(), src.getCol())) {
             return src;
         }
 
@@ -61,50 +61,37 @@ public class AStar extends Search {
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
                 cellDetails[i][j] = new cell();
-                cellDetails[i][j].f = Double.MAX_VALUE;
-                cellDetails[i][j].g = Double.MAX_VALUE;
-                cellDetails[i][j].h = Double.MAX_VALUE;
-                cellDetails[i][j].parentX = -1;
-                cellDetails[i][j].parentY = -1;
             }
         }
 
-        int i = src.getR(), j = src.getC();
+        int i = src.getRow(), j = src.getCol();
         cellDetails[i][j].f = 0.0;
         cellDetails[i][j].g = 0.0;
         cellDetails[i][j].h = 0.0;
         cellDetails[i][j].parentX = i;
         cellDetails[i][j].parentY = j;
 
-        PriorityQueue<Position> openList = new PriorityQueue<>((a, b) -> {
-            double fa = cellDetails[a.getR()][a.getC()].f;
-            double fb = cellDetails[b.getR()][b.getC()].f;
-            return Double.compare(fa, fb);
-        });
+        PriorityQueue<Position> openList = new PriorityQueue<>(
+                Comparator.comparingDouble(p -> cellDetails[p.getRow()][p.getCol()].f)
+        );
         openList.add(src);
 
-        boolean foundDest = false;
         while (!openList.isEmpty()) {
             Position p = openList.poll();
-            i = p.getR();
-            j = p.getC();
+            i = p.getRow();
+            j = p.getCol();
             closedList[i][j] = true;
 
-            double fx = 0, gx = 0, hx = 0;
-            if (pathProcessor(i, j, i - 1, j, dest, fx, gx, hx, cellDetails, closedList, grid, openList)) {
-                foundDest = true;
+            if (pathProcessor(i, j, i - 1, j, dest, cellDetails, closedList, grid, openList)) {
                 break;
             }
-            if (pathProcessor(i, j, i + 1, j, dest, fx, gx, hx, cellDetails, closedList, grid, openList)) {
-                foundDest = true;
+            if (pathProcessor(i, j, i + 1, j, dest, cellDetails, closedList, grid, openList)) {
                 break;
             }
-            if (pathProcessor(i, j, i, j - 1, dest, fx, gx, hx, cellDetails, closedList, grid, openList)) {
-                foundDest = true;
+            if (pathProcessor(i, j, i, j - 1, dest, cellDetails, closedList, grid, openList)) {
                 break;
             }
-            if (pathProcessor(i, j, i, j + 1, dest, fx, gx, hx, cellDetails, closedList, grid, openList)) {
-                foundDest = true;
+            if (pathProcessor(i, j, i, j + 1, dest, cellDetails, closedList, grid, openList)) {
                 break;
             }
         }
