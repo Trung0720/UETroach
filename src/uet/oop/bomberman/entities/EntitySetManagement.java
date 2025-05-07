@@ -37,7 +37,7 @@ public class EntitySetManagement {
     private final List<Item> itemList = new ArrayList<>();
 
     private Entity portal = null;
-    private Bomber bomberMan = new Bomber(1, 1, Sprite.player_right.getFxImage());
+    private Bomber bomberMan = null;
 
     public void removeEnemies() {
         int sizeBefore = enemyList.size();
@@ -63,6 +63,7 @@ public class EntitySetManagement {
         brickList.clear();
         grassList.clear();
         wallList.clear();
+        bombList.clear();
         itemList.clear();
         bomberMan = null;
         portal = null;

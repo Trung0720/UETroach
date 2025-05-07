@@ -143,7 +143,6 @@ public class Sprite {
     }
 
     public static Sprite movingSprite(int animate, int time, Sprite... frames) {
-        /*
         if (frames.length == 0 || time <= 0) return null;
 
         int frameCount = frames.length;
@@ -152,13 +151,13 @@ public class Sprite {
             frameDuration = 1;
         }
         int index = (animate / frameDuration / (frames.length / 2)) % frameCount;
-        System.out.println("bb" + index);
         return frames[index];
-         */
 
+        /*
         if (frames.length == 0) return null;
         int index = (animate / (time / frames.length) / (frames.length / 2)) % frames.length;
         return frames[index];
+         */
     }
 
     public int getSIZE() {
