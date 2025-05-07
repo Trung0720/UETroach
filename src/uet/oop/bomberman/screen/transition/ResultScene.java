@@ -1,4 +1,4 @@
-package uet.oop.bomberman.screen.afterlevel;
+package uet.oop.bomberman.screen.transition;
 
 import javafx.animation.PauseTransition;
 import javafx.scene.effect.DropShadow;
@@ -23,6 +23,7 @@ public class ResultScene {
     private static final String BACKGROUND_IMAGE = "/levels/blurred_background.png";
     private static final String LEVEL_UP_SOUND = "res/sound/level_up.mp3";
     private static final String GAME_OVER_SOUND = "res/sound/game_over.mp3";
+    private static final String WIN_SOUND = "res/sound/win.mp3";
     private static Pane pane;
     public static Text levelUp, gameOver, win, score;
     private static final int TIME = 2;
@@ -93,6 +94,7 @@ public class ResultScene {
     }
 
     private static void renderWin() {
+        Sound.playSoundTillEnd(WIN_SOUND);
         renderScore();
         win = createText("YOU WIN!", 200);
         win.setX(WIDTH / 2.0 - 320);

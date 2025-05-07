@@ -19,7 +19,7 @@ import java.util.TimerTask;
 
 public class Bomber extends Entity implements Move {
     private static final String BOMB_PLANTED_SOUND = "res/sound/bomb_planted.wav";
-    private static final String DEATH_SOUND = "res/sound/death_sound.mp3";
+    private static final String DEATH_SOUND = "res/sound/player_death.mp3";
     private int speed = 2;
     private boolean isAlive = true;
     private boolean deathHandled = false;

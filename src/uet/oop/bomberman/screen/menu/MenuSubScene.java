@@ -10,7 +10,13 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class MenuSubScene extends SubScene {
     private static final String BACKGROUND_IMAGE = "/menu/panel.png";
@@ -97,22 +103,60 @@ public class MenuSubScene extends SubScene {
     }
 
     private VBox createHelpContent() {
-        Label label = createLabel("Hướng dẫn cách chơi:", 30);
+        Label label = createLabel("Hướng dẫn cách chơi", 30);
         Label label1 = createLabelWithIcon("Di chuyển sang trái", 25, "/menu/key_left.png");
         Label label2 = createLabelWithIcon("Di chuyển sang phải", 25, "/menu/key_right.png");
         Label label3 = createLabelWithIcon("Di chuyển lên trên", 25, "/menu/key_up.png");
         Label label4 = createLabelWithIcon("Di chuyển xuống dưới", 25, "/menu/key_down.png");
-        Label label5 = createLabelWithIcon("Đặt bomb", 25, "/menu/key_space.png");
+        Label label5 = createLabelWithIcon("Tiêu diệt toàn bộ quái", 25, "/menu/key_c.png");
+        Label label6 = createLabelWithIcon("Đặt bomb", 25, "/menu/key_space.png");
 
-        VBox box = new VBox(6);
-        box.getChildren().addAll(label, label1, label2, label3, label4, label5);
+        VBox box = new VBox(7);
+        box.getChildren().addAll(label, label1, label2, label3, label4, label5, label6);
         box.setLayoutX(45);
-        box.setLayoutY(90);
+        box.setLayoutY(60);
         return box;
     }
 
     private VBox createScoresContent() {
-        VBox box = new VBox(10);
+        Label title = createLabel("HIGH SCORE", 50);
+        VBox box = new VBox(6);
+        box.setLayoutX(40);
+        box.setLayoutY(30);
+        box.getChildren().add(title);
+
+        List<String> lines = new ArrayList<>();
+        try {
+            lines = Files.readAllLines(Paths.get("res/score/scores.txt"));
+        } catch (IOException e) {
+            System.out.println("Score input error: " + e.getMessage());
+        }
+
+        List<Integer> scores = new ArrayList<>();
+        try {
+            for (String s : lines)  {
+                scores.add(Integer.parseInt(s));
+            }
+        } catch (NumberFormatException e){
+            System.out.println("Format scores error: " + e.getMessage());
+        }
+
+        scores.sort(Comparator.reverseOrder());
+
+        Label label;
+        for (int i = 1; i <= Math.min(5, scores.size()); i++) {
+            label = createLabel(
+                    "Anonymous #" + i + " - " + scores.get(i - 1).toString(),
+                    25
+            );
+            box.getChildren().add(label);
+        }
+
+        for (int i = Math.min(5, scores.size()) + 1; i <= 7; i++) {
+            label = createLabel("Anonymous #" + i + " - --", 25);
+            box.getChildren().add(label);
+        }
+
         return box;
     }
 
@@ -125,5 +169,23 @@ public class MenuSubScene extends SubScene {
         box.setLayoutX(38);
         box.setLayoutY(100);
         return box;
+    }
+
+    public void updateScoresContent() {
+        Pane root = (Pane) getRoot();
+        root.getChildren().clear();
+
+
+        BackgroundImage backgroundImage = new BackgroundImage(
+                new Image(BACKGROUND_IMAGE, WIDTH, HEIGHT, false, true),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT,
+                null
+        );
+        root.setBackground(new Background(backgroundImage));
+
+        VBox box = createScoresContent();
+        root.getChildren().add(box);
     }
 }

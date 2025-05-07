@@ -89,13 +89,10 @@ public class EntitySetManagement {
 
     public void renderAll(GraphicsContext graphicsContext) {
         try {
-            graphicsContext.save();
-            graphicsContext.setTransform(new Affine());
             graphicsContext.clearRect(0, 0,
                     Main.WIDTH * Sprite.SCALED_SIZE,
                     Main.HEIGHT * Sprite.SCALED_SIZE
             );
-            graphicsContext.restore();
 
             grassList.forEach(grass -> grass.render(graphicsContext));
             wallList.forEach(wall -> wall.render(graphicsContext));

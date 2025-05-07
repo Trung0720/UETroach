@@ -66,7 +66,7 @@ public class StatusBar {
         volumeSlider.setLayoutY(10);
         volumeSlider.setStyle("""
         -fx-control-inner-background: #cdcbc9;
-        -fx-base: #333232;
+        -fx-base: #5e5d5d;
         """);
 
         volumeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {

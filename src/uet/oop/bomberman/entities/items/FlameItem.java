@@ -5,13 +5,13 @@ import javafx.scene.image.Image;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.map.Map;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class FlameItem extends Item {
-
     public FlameItem(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
     }
@@ -32,7 +32,7 @@ public class FlameItem extends Item {
     }
 
     private void handleItemCollection() {
-//        Sound.playSound("itemcollection", 1500);
+        Sound.playSoundTillEnd(ITEM_COLLECTION);
         Map.map2D[y / Sprite.SCALED_SIZE][x / Sprite.SCALED_SIZE] = ' ';
         Bomb.radius += 1;
         this.isVisible = false;

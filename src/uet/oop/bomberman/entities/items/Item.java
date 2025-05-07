@@ -5,6 +5,7 @@ import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.EntitySetManagement;
 
 public abstract class Item extends Entity {
+    public static final String ITEM_COLLECTION = "res/sound/item_collect.mp3";
     protected boolean isVisible = true;
     protected boolean isUsed = false;
 
