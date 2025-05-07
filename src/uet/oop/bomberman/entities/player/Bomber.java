@@ -187,7 +187,7 @@ public class Bomber extends Entity implements Move {
             keepMoving = 0;
         }
         setImg(Sprite.movingSprite(
-                keepMoving, 180,
+                keepMoving, 120,
                 Sprite.player_dead_1,
                 Sprite.player_dead_2,
                 Sprite.player_dead_3).getFxImage());
@@ -234,7 +234,7 @@ public class Bomber extends Entity implements Move {
                 EntitySetManagement.getEntitySetManagement().getBombList().add(bomb);
                 Timer timer = new Timer();
                 try {
-                    timer.schedule(task, 3500);
+                    timer.schedule(task, 3000);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -246,23 +246,25 @@ public class Bomber extends Entity implements Move {
 
     @Override
     public void update() {
-        if (!this.isAlive && !deathHandled) {
-            deathHandled = true;
-            Sound.playSoundTillEnd(DEATH_SOUND);
+        if (!this.isAlive) {
+            Timer timer = new Timer();
+            if (!deathHandled) {
+                deathHandled = true;
+                Sound.playSoundTillEnd(DEATH_SOUND);
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        GameLoop.gameStatus = GameLoop.STATUS_GAME_OVER;
+                    }
+                }, 2000L);
+            }
             TimerTask timeDeath = new TimerTask() {
                 @Override
                 public void run() {
                     setUpBomberDeath();
                 }
             };
-            Timer timer = new Timer();
             timer.schedule(timeDeath, 100L);
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    GameLoop.gameStatus = GameLoop.STATUS_GAME_OVER;
-                }
-            }, 2000L);
         }
     }
 }

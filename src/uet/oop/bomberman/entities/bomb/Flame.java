@@ -106,7 +106,7 @@ public class Flame extends Entity {
             default:
                 return;
         }
-        setImg(Sprite.movingSprite(Bomb.animation, Sprite.SCALED_SIZE * 3 / 2, frames).getFxImage());
+        setImg(Sprite.movingSprite(Bomb.animation, 36, frames).getFxImage());
     }
 
     public boolean checkFlameBrick() {

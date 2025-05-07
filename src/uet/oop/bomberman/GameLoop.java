@@ -15,7 +15,7 @@ import uet.oop.bomberman.screen.transition.ResultScene;
 import uet.oop.bomberman.screen.transition.ResultType;
 
 public class GameLoop extends AnimationTimer {
-    public static final int MAX_LEVEL = 2;
+    public static final int MAX_LEVEL = 6;
     public static final int STATUS_PLAYING = 1;
     public static final int STATUS_GAME_OVER = 2;
     public static final int STATUS_WIN = 3;
@@ -128,10 +128,11 @@ public class GameLoop extends AnimationTimer {
         entitySetManagement.clearAll();
         Map.createMapByLevel(nextLevel);
         currentLevel = nextLevel;
+        StatusBar.countDown = 30000;
 
+        CameraTranslate.moveCamera(Main.cameraX, Main.cameraY);
         Main.cameraX = 0;
         Main.cameraY = 0;
-        CameraTranslate.moveCamera(Main.cameraX, Main.cameraY);
 
         PlayerController.playerControl(scene, entitySetManagement.getBomberMan(), entitySetManagement);
     }

@@ -21,12 +21,12 @@ public class Pineapple extends Enemy {
                     Sprite.pineapple_left_2).getFxImage();
         } else if (this.getSpeedY() > 0) {
             this.img = Sprite.movingSprite(
-                    this.x, Sprite.DEFAULT_SIZE,
+                    this.y, Sprite.DEFAULT_SIZE,
                     Sprite.pineapple_right_1,
                     Sprite.pineapple_right_2).getFxImage();
         } else {
             this.img = Sprite.movingSprite(
-                    this.x, Sprite.DEFAULT_SIZE,
+                    this.y, Sprite.DEFAULT_SIZE,
                     Sprite.pineapple_left_1,
                     Sprite.pineapple_left_2).getFxImage();
         }

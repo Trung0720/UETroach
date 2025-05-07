@@ -100,7 +100,6 @@ public abstract class Search {
                 return path.pop();
             }
         } catch (ArrayIndexOutOfBoundsException ex) {
-            System.out.println("blocked");
             return src;
         }
         return src;

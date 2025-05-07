@@ -69,13 +69,13 @@ public class Bomb extends Entity {
             Flame flame = new Flame(this.x / Sprite.SCALED_SIZE, this.y / Sprite.SCALED_SIZE + i,
                     (i == radius) ?
                             Sprite.movingSprite(
-                                    animate, Sprite.SCALED_SIZE,
+                                    animate, 24,
                                     Sprite.explosion_vertical_down_last_1,
                                     Sprite.explosion_vertical_down_last_2,
                                     Sprite.explosion_vertical_down_last_3
                             ).getFxImage() :
                             Sprite.movingSprite(
-                                    animate, Sprite.SCALED_SIZE,
+                                    animate, 24,
                                     Sprite.explosion_vertical_1,
                                     Sprite.explosion_vertical_2,
                                     Sprite.explosion_vertical_3
@@ -95,13 +95,13 @@ public class Bomb extends Entity {
             Flame flame = new Flame(this.x / Sprite.SCALED_SIZE, this.y / Sprite.SCALED_SIZE - i,
                     (i == radius) ?
                             Sprite.movingSprite(
-                                    animate, Sprite.SCALED_SIZE,
+                                    animate, 24,
                                     Sprite.explosion_vertical_top_last_1,
                                     Sprite.explosion_vertical_top_last_2,
                                     Sprite.explosion_vertical_top_last_3
                             ).getFxImage() :
                             Sprite.movingSprite(
-                                    animate, Sprite.SCALED_SIZE,
+                                    animate, 24,
                                     Sprite.explosion_vertical_1,
                                     Sprite.explosion_vertical_2,
                                     Sprite.explosion_vertical_3
@@ -120,13 +120,13 @@ public class Bomb extends Entity {
             Flame flame = new Flame(this.x / Sprite.SCALED_SIZE + i, this.y / Sprite.SCALED_SIZE,
                     (i == radius) ?
                             Sprite.movingSprite(
-                                    animate, Sprite.SCALED_SIZE,
+                                    animate, 24,
                                     Sprite.explosion_horizontal_right_last_1,
                                     Sprite.explosion_horizontal_right_last_2,
                                     Sprite.explosion_horizontal_right_last_3
                             ).getFxImage() :
                             Sprite.movingSprite(
-                                    animate, Sprite.SCALED_SIZE,
+                                    animate, 24,
                                     Sprite.explosion_horizontal_1,
                                     Sprite.explosion_horizontal_2,
                                     Sprite.explosion_horizontal_3
@@ -145,13 +145,13 @@ public class Bomb extends Entity {
             Flame flame = new Flame(this.x / Sprite.SCALED_SIZE - i, this.y / Sprite.SCALED_SIZE,
                     (i == radius) ?
                             Sprite.movingSprite(
-                                    animate, Sprite.SCALED_SIZE,
+                                    animate, 24,
                                     Sprite.explosion_horizontal_left_last_1,
                                     Sprite.explosion_horizontal_left_last_2,
                                     Sprite.explosion_horizontal_left_last_3
                             ).getFxImage() :
                             Sprite.movingSprite(
-                                    animate, Sprite.SCALED_SIZE,
+                                    animate, 24,
                                     Sprite.explosion_horizontal_1,
                                     Sprite.explosion_horizontal_2,
                                     Sprite.explosion_horizontal_3
@@ -212,7 +212,7 @@ public class Bomb extends Entity {
             Map.map2D[this.getY() / Sprite.SCALED_SIZE][this.getX() / Sprite.SCALED_SIZE] = ' ';
             this.setImg(
                     Sprite.movingSprite(
-                            90, Sprite.SCALED_SIZE,
+                            90, 24,
                             Sprite.bomb_exploded_1,
                             Sprite.bomb_exploded_2,
                             Sprite.bomb_exploded_3
@@ -235,12 +235,12 @@ public class Bomb extends Entity {
                     ).getFxImage());
         }
         if (this.exploded) {
-            if (animation >= Sprite.SCALED_SIZE * 3 / 2) {
+            if (animation >= 36) {
                 animation = 0;
             }
             animation++;
             setImg(Sprite.movingSprite(
-                    animation, Sprite.SCALED_SIZE * 3 / 2,
+                    animation, 36,
                     Sprite.bomb_exploded_1,
                     Sprite.bomb_exploded_2,
                     Sprite.bomb_exploded_3
