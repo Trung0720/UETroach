@@ -6,9 +6,11 @@ import uet.oop.bomberman.entities.enemies.search.AStar;
 import uet.oop.bomberman.entities.enemies.search.Search;
 import uet.oop.bomberman.entities.map.Map;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 //Oneal
 public class Chicken extends Enemy {
+    private static final String CHICKEN_DEATH_SOUND = "res/sound/dead_chicken.mp3";
     private int slow = 0;
     private int keepMoving = 0;
 
@@ -129,7 +131,13 @@ public class Chicken extends Enemy {
 
     @Override
     public void update() {
-        super.update();
+        if (!this.isAlive()) {
+            if (deathCount == 0) {
+                Sound.playSoundForRate(CHICKEN_DEATH_SOUND, 1.5);
+                deathCount = 1;
+            }
+        }
+        checkBomber();
 
         keepMoving = (keepMoving + 1) % 101;
 

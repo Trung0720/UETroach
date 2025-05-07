@@ -29,6 +29,10 @@ public class EntitySetManagement {
         return entitySetManagement;
     }
 
+    public static void reset() {
+        entitySetManagement = new EntitySetManagement();
+    }
+
     private final List<Bomb> bombList = new ArrayList<>();
     private final List<Wall> wallList = new ArrayList<>();
     private final List<Grass> grassList = new ArrayList<>();

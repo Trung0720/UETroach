@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class PlayerController {
     private static final Set<KeyCode> keyInputs = new HashSet<>();
-    private static AnimationTimer playerControlTimer;
+    public static AnimationTimer playerControlTimer;
 
     public static void playerControl(Scene scene, Bomber bomber, EntitySetManagement entitySetManagement) {
         if (playerControlTimer != null) {

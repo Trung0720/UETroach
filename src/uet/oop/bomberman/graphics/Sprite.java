@@ -143,15 +143,29 @@ public class Sprite {
     }
 
     public static Sprite movingSprite(int animate, int time, Sprite... frames) {
-        if (frames.length == 0 || time <= 0) return null;
+        Sprite res = frames[0];
+        try {
+            if (frames.length == 0 || time <= 0) return null;
 
-        int frameCount = frames.length;
-        int frameDuration = time / frameCount;
-        if (frameDuration == 0) {
-            frameDuration = 1;
+            int frameCount = frames.length;
+            int frameDuration = time / frameCount;
+            if (frameDuration == 0) {
+                frameDuration = 1;
+            }
+
+            int divide = frames.length / 2;
+            if (divide == 0) {
+                divide = 1;
+            }
+
+            int index = (animate / frameDuration / divide) % frameCount;
+            index = (index + frameCount) % frameCount;
+            res = frames[index];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
         }
-        int index = (animate / frameDuration / (frames.length / 2)) % frameCount;
-        return frames[index];
+
+        return res;
 
         /*
         if (frames.length == 0) return null;

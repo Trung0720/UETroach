@@ -3,8 +3,6 @@ package uet.oop.bomberman.screen;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.control.Slider;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -28,7 +26,7 @@ public class StatusBar {
         time = createText(300, 22);
         score = createText(500, 22);
         masterVolume = createText(820, 22);
-        masterVolume.setText("MASTER VOLUME:");
+        masterVolume.setText("MUSIC VOLUME:");
         volumeSlider = createSoundSlider();
 
         Pane pane = new Pane();
@@ -86,7 +84,8 @@ public class StatusBar {
 
     public static void updateStatusBar(long now) {
         level.setText("LEVEL: " + GameLoop.currentLevel);
-        time.setText("TIME: " + countDown / 100);
+        String timeText = ((countDown % 6000) / 100 < 10) ? "0" : "";
+        time.setText("TIME: " + countDown / 6000 + ":" + timeText + (countDown % 6000) / 100);
         score.setText("SCORE: " + GameLoop.score);
         countDown -= 2;// Đếm ngược theo 60FPS
         if (countDown == 0) {

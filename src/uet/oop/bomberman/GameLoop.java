@@ -116,7 +116,11 @@ public class GameLoop extends AnimationTimer {
     }
 
     public static void restart() {
+        EntitySetManagement.reset();
         entitySetManagement = EntitySetManagement.getEntitySetManagement();
+        if (PlayerController.playerControlTimer != null) {
+            PlayerController.playerControlTimer.stop();
+        }
         score = 0;
         currentLevel = 0;
         nextLevel = 1;
@@ -126,6 +130,8 @@ public class GameLoop extends AnimationTimer {
 
     public static void levelUp(Scene scene) {
         entitySetManagement.clearAll();
+        EntitySetManagement.reset();
+        entitySetManagement = EntitySetManagement.getEntitySetManagement();
         Map.createMapByLevel(nextLevel);
         currentLevel = nextLevel;
         StatusBar.countDown = 30000;
