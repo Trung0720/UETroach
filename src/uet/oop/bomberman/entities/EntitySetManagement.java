@@ -1,7 +1,6 @@
 package uet.oop.bomberman.entities;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.transform.Affine;
 import uet.oop.bomberman.GameLoop;
 import uet.oop.bomberman.Main;
 import uet.oop.bomberman.entities.bomb.Bomb;

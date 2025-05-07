@@ -25,14 +25,14 @@ public class Strawberry extends Enemy {
                     Sprite.strawberry_left_4).getFxImage();
         } else if (this.getSpeedY() > 0) {
             this.img = Sprite.movingSprite(
-                    this.x, Sprite.DEFAULT_SIZE,
+                    this.y, Sprite.DEFAULT_SIZE,
                     Sprite.strawberry_right_1,
                     Sprite.strawberry_right_2,
                     Sprite.strawberry_right_3,
                     Sprite.strawberry_right_4).getFxImage();
         } else {
             this.img = Sprite.movingSprite(
-                    this.x, Sprite.DEFAULT_SIZE,
+                    this.y, Sprite.DEFAULT_SIZE,
                     Sprite.strawberry_left_1,
                     Sprite.strawberry_left_2,
                     Sprite.strawberry_left_3,
