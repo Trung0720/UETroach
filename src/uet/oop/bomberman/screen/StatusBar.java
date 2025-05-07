@@ -21,7 +21,7 @@ public class StatusBar {
     private static final int FONT_SIZE = 14;
     public static Text level, time, score, masterVolume;
     public static Slider volumeSlider;
-    public static int countDown = 100000;
+    public static int countDown = 30000;
 
     public static void createStatusBar(Group root) {
         level = createText(100, 22);
