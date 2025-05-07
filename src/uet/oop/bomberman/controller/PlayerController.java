@@ -12,8 +12,13 @@ import java.util.Set;
 
 public class PlayerController {
     private static final Set<KeyCode> keyInputs = new HashSet<>();
+    private static AnimationTimer playerControlTimer;
 
     public static void playerControl(Scene scene, Bomber bomber, EntitySetManagement entitySetManagement) {
+        if (playerControlTimer != null) {
+            playerControlTimer.stop();
+        }
+
         if (bomber.isAlive()) {
             scene.setOnKeyPressed(keyEvent -> {
                 KeyCode keyCode = keyEvent.getCode();
@@ -47,7 +52,7 @@ public class PlayerController {
                 }
             });
 
-            AnimationTimer playerControlTimer = new AnimationTimer() {
+            playerControlTimer = new AnimationTimer() {
                 @Override
                 public void handle(long l) {
                     if (!bomber.isAlive()) {
