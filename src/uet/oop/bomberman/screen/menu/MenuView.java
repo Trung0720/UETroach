@@ -81,7 +81,7 @@ public class MenuView {
     }
 
     private void showSubScene(MenuSubScene menuSubScene) {
-        if (sceneToHide != null && sceneToHide != menuSubScene) {
+        if (sceneToHide != null) {
             sceneToHide.fadeOut();
         }
 
@@ -91,8 +91,11 @@ public class MenuView {
 
         if (sceneToHide != menuSubScene) {
             menuSubScene.fadeIn();
+            sceneToHide = menuSubScene;
+        } else {
+            sceneToHide = null;
         }
-        sceneToHide = menuSubScene;
+
     }
 
     private void addMenuButton(MenuButton menuButton) {

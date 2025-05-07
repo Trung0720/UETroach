@@ -1,6 +1,7 @@
 package uet.oop.bomberman.screen.menu;
 
 import javafx.animation.FadeTransition;
+import javafx.geometry.Pos;
 import javafx.scene.SubScene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
@@ -94,9 +95,9 @@ public class MenuSubScene extends SubScene {
         return label;
     }
 
-    private Label createLabelWithIcon(String text, int size, String imagePath) {
+    private Label createLabelWithIcon(String text, int size, int imageSize, String imagePath) {
         Label label = createLabel(text, size);
-        ImageView image = new ImageView(new Image(imagePath, 30, 30, false, true));
+        ImageView image = new ImageView(new Image(imagePath, imageSize, imageSize, false, true));
         label.setGraphic(image);
 
         return label;
@@ -104,12 +105,12 @@ public class MenuSubScene extends SubScene {
 
     private VBox createHelpContent() {
         Label label = createLabel("Hướng dẫn cách chơi", 30);
-        Label label1 = createLabelWithIcon("Di chuyển sang trái", 25, "/menu/key_left.png");
-        Label label2 = createLabelWithIcon("Di chuyển sang phải", 25, "/menu/key_right.png");
-        Label label3 = createLabelWithIcon("Di chuyển lên trên", 25, "/menu/key_up.png");
-        Label label4 = createLabelWithIcon("Di chuyển xuống dưới", 25, "/menu/key_down.png");
-        Label label5 = createLabelWithIcon("Tiêu diệt toàn bộ quái", 25, "/menu/key_c.png");
-        Label label6 = createLabelWithIcon("Đặt bomb", 25, "/menu/key_space.png");
+        Label label1 = createLabelWithIcon("Di chuyển sang trái", 25, 30, "/menu/key_left.png");
+        Label label2 = createLabelWithIcon("Di chuyển sang phải", 25, 30, "/menu/key_right.png");
+        Label label3 = createLabelWithIcon("Di chuyển lên trên", 25, 30, "/menu/key_up.png");
+        Label label4 = createLabelWithIcon("Di chuyển xuống dưới", 25, 30, "/menu/key_down.png");
+        Label label5 = createLabelWithIcon("Tiêu diệt toàn bộ quái", 25, 30, "/menu/key_c.png");
+        Label label6 = createLabelWithIcon("Đặt bomb", 25, 30, "/menu/key_space.png");
 
         VBox box = new VBox(7);
         box.getChildren().addAll(label, label1, label2, label3, label4, label5, label6);
@@ -161,13 +162,17 @@ public class MenuSubScene extends SubScene {
     }
 
     private VBox createCreditsContent() {
-        Label creator1 = createLabel("24022474_NGUYỄN QUỐC TRUNG", 20);
-        Label creator2 = createLabel("24022450_TỐNG QUANG THÁI", 20);
-        Label creator3 = createLabel("24022480_NGUYỄN THIÊN TRƯỜNG", 20);
-        VBox box = new VBox(3);
-        box.getChildren().addAll(creator1, creator2, creator3);
-        box.setLayoutX(38);
-        box.setLayoutY(100);
+        Label label = createLabel("CREATOR", 50);
+        Label creator1 = createLabelWithIcon("24022474", 30, 60, "/menu/trung.jpg");
+        Label label1 = createLabel("NGUYỄN QUỐC TRUNG", 25);
+        Label creator2 = createLabelWithIcon("24022450", 30, 60, "/menu/thai.jpg");
+        Label label2 = createLabel("TỐNG QUANG THÁI", 25);
+        Label creator3 = createLabelWithIcon("24022480", 30, 60, "/menu/truong.jpg");
+        Label label3 = createLabel("NGUYỄN THIÊN TRƯỜNG", 25);
+        VBox box = new VBox(7);
+        box.getChildren().addAll(label, creator1, label1, creator2, label2, creator3, label3);
+        box.setLayoutX(35);
+        box.setLayoutY(25);
         return box;
     }
 
