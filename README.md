@@ -9,7 +9,7 @@
 Chúng được chia làm hai loại chính là nhóm đối tượng động (*Bomber*, *Enemy*, *Bomb*) và nhóm đối tượng tĩnh (*Grass*, *Wall*, *Brick*, *Portal*, *Item*). 
 *Nhóm đối tượng động*
 - ![](res/sprites/Bomber/koala_down.png) *Bomber* là nhân vật chính của trò chơi. Bomber có thể di chuyển theo 4 hướng trái/phải/lên/xuống theo sự điều khiển của người chơi.
-- ![](res/sprites/Enemy/Chicken_walk_1.png) *Enemy* là các đối tượng mà Bomber phải tiêu diệt hết để có thể qua Level. Enemy có thể di chuyển ngẫu nhiên hoặc tự đuổi theo Bomber tùy theo loại Enemy. Các loại Enemy sẽ được mô tả cụ thể ở phần dưới.
+- ![](res/sprites/Enemy/chicken_walk_1.png) *Enemy* là các đối tượng mà Bomber phải tiêu diệt hết để có thể qua Level. Enemy có thể di chuyển ngẫu nhiên hoặc tự đuổi theo Bomber tùy theo loại Enemy. Các loại Enemy sẽ được mô tả cụ thể ở phần dưới.
 - ![](res/sprites/Bomb/bomb.png) *Bomb* là đối tượng mà Bomber sẽ đặt và kích hoạt tại các ô Grass. Khi đã được kích hoạt, Bomber và Enemy không thể di chuyển vào vị trí Bomb. Tuy nhiên ngay khi Bomber vừa đặt và kích hoạt Bomb tại ví trí của mình, Bomber có một lần được đi từ vị trí đặt Bomb ra vị trí bên cạnh. Sau khi kích hoạt 3s, Bomb sẽ tự nổ, các đối tượng *Flame* được tạo ra.
 *Nhóm đối tượng tĩnh*
 - *Grass* là đối tượng mà Bomber và Enemy có thể di chuyển xuyên qua, và cho phép đặt Bomb lên vị trí của nó.
@@ -19,13 +19,13 @@ Chúng được chia làm hai loại chính là nhóm đối tượng động (*
   
 Các *Item* cũng được giấu phía sau Brick và chỉ hiện ra khi Brick bị phá hủy. Bomber có thể sử dụng Item bằng cách di chuyển vào vị trí của Item. Thông tin về chức năng của các Item được liệt kê như dưới đây:
 - ![](res/sprites/PowerUp/powerup_speed.png) *SpeedItem* Khi sử dụng Item này, Bomber sẽ được tăng vận tốc di chuyển thêm một giá trị thích hợp.
-- !![](res/sprites/PowerUp/powerup_flames.png) *FlameItem* Item này giúp tăng phạm vi ảnh hưởng của Bomb khi nổ (độ dài các Flame lớn hơn).
+- ![](res/sprites/PowerUp/powerup_flames.png) *FlameItem* Item này giúp tăng phạm vi ảnh hưởng của Bomb khi nổ (độ dài các Flame lớn hơn).
 - ![](res/sprites/PowerUp/powerup_bombs.png) *BombItem* Thông thường, nếu không có đối tượng Bomb nào đang trong trạng thái kích hoạt, Bomber sẽ được đặt và kích hoạt duy nhất một đối tượng Bomb. Item này giúp tăng số lượng Bomb có thể đặt thêm một.
 
 Có 3 loại *Enemy*:
 - *Pineapple* là Enemy đơn giản nhất, di chuyển ngẫu nhiên với tốc độ cố định.
-- ![](res/sprites/Enemy/Chicken_walk_1.png) *Chicken* là Enemy di chuyển thông minh hơn so với Pineapple (biết đuổi theo Bomber).
-- ![](res/sprites/Enemy/Strawberry_walk_1.png) *Strawberry* là Enemy di chuyển ngẫu nhiên nhưng tốc độ nhanh hơn Pineapple và Chicken.
+- ![](res/sprites/Enemy/chicken_walk_1.png) *Chicken* là Enemy di chuyển thông minh hơn so với Pineapple (biết đuổi theo Bomber).
+- ![](res/sprites/Enemy/strawberry_walk_1.png) *Strawberry* là Enemy di chuyển ngẫu nhiên nhưng tốc độ nhanh hơn Pineapple và Chicken.
 
 ## Mô tả game play, xử lý va chạm và xử lý bom nổ
 - Trong một màn chơi, Bomber sẽ được người chơi di chuyển, đặt và kích hoạt Bomb với mục tiêu chính là tiêu diệt tất cả Enemy và tìm ra vị trí Portal để có thể qua màn mới.
