@@ -70,7 +70,7 @@ public class Sprite {
     public static Sprite strawberry_right_2 = new Sprite(DEFAULT_SIZE, 16, 16, 14, 1, SpriteSheet.tiles);
     public static Sprite strawberry_right_3 = new Sprite(DEFAULT_SIZE, 16, 16, 14, 2, SpriteSheet.tiles);
     public static Sprite strawberry_right_4 = new Sprite(DEFAULT_SIZE, 16, 16, 14, 3, SpriteSheet.tiles);
-    public static Sprite strawberry_dead = new Sprite(DEFAULT_SIZE, 16, 16, 14, 4 , SpriteSheet.tiles);
+    public static Sprite strawberry_dead = new Sprite(DEFAULT_SIZE, 16, 16, 13, 4 , SpriteSheet.tiles);
     /*
     |--------------------------------------------------------------------------
     | Bomb Sprites
