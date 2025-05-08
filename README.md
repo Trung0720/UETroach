@@ -40,9 +40,13 @@ Có 3 loại *Enemy*:
 https://encr.pw/bomberman-uet-UETroach
 
 ## Cài đặt
-- Clone dự án từ repo về máy.
-- Mở dự án trong IDE.
-- Chạy dự án.
+
+Hướng dẫn:
+1. Copy đường dẫn của lib sau khi giải nén (sau đây gọi là PATH).
+2. Mở IntelliJ chọn Project Structure\Libraries\+\PATH.
+3. Tiếp theo tại nút ⋮\Run with parameters\Modify options\Add VM Options.
+4. Điền "--module-path=PATH --add-modules javafx.controls,javafx.fxml,javafx.media".
+5. Run.
 
 ## Hướng dẫn
 ![](res/instruction.png)
