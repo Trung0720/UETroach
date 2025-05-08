@@ -45,6 +45,7 @@ https://encr.pw/bomberman-uet-UETroach
 3. Run the project.
 
 ## Usage
+![](res/instruction.png)
 
 ## Demo
 ![](res/demo.png)
