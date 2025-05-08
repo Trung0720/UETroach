@@ -56,7 +56,7 @@ https://encr.pw/bomberman-uet-UETroach
 - Add player.
 
 ## Project status
-The project is completed.
+- The project is completed.
 
 ## Notes
 - Cải tiến dựa trên mã nguồn cũ 
