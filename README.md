@@ -13,7 +13,7 @@ Chúng được chia làm hai loại chính là nhóm đối tượng động (*
 - ![](res/sprites/Bomb/bomb.png) *Bomb* là đối tượng mà Bomber sẽ đặt và kích hoạt tại các ô Grass. Khi đã được kích hoạt, Bomber và Enemy không thể di chuyển vào vị trí Bomb. Tuy nhiên ngay khi Bomber vừa đặt và kích hoạt Bomb tại ví trí của mình, Bomber có một lần được đi từ vị trí đặt Bomb ra vị trí bên cạnh. Sau khi kích hoạt 3s, Bomb sẽ tự nổ, các đối tượng *Flame* được tạo ra.
 
 *Nhóm đối tượng tĩnh*
-- *Grass* là đối tượng mà Bomber và Enemy có thể di chuyển xuyên qua, và cho phép đặt Bomb lên vị trí của nó.
+- ![](res/sprites/MapBlock/grass.png) *Grass* là đối tượng mà Bomber và Enemy có thể di chuyển xuyên qua, và cho phép đặt Bomb lên vị trí của nó.
 - ![](res/sprites/MapBlock/stone.png) *Wall* là đối tượng cố định, không thể phá hủy bằng Bomb cũng như không thể đặt Bomb lên được, Bomber và Enemy không thể di chuyển vào đối tượng này
 - ![](res/sprites/MapBlock/brick.png) *Brick* là đối tượng được đặt lên các ô Grass, không cho phép đặt Bomb lên nhưng có thể bị phá hủy bởi Bomb được đặt gần đó. Bomber và Enemy thông thường không thể di chuyển vào vị trí Brick khi nó chưa bị phá hủy.
 - ![](res/sprites/MapBlock/gate.png) *Portal* là đối tượng được giấu phía sau một đối tượng Brick. Khi Brick đó bị phá hủy, Portal sẽ hiện ra và nếu tất cả Enemy đã bị tiêu diệt thì người chơi có thể qua Level khác bằng cách di chuyển vào vị trí của Portal.
@@ -24,7 +24,7 @@ Các *Item* cũng được giấu phía sau Brick và chỉ hiện ra khi Brick 
 - ![](res/sprites/PowerUp/powerup_bombs.png) *BombItem* Thông thường, nếu không có đối tượng Bomb nào đang trong trạng thái kích hoạt, Bomber sẽ được đặt và kích hoạt duy nhất một đối tượng Bomb. Item này giúp tăng số lượng Bomb có thể đặt thêm một.
 
 Có 3 loại *Enemy*:
-- *Pineapple* là Enemy đơn giản nhất, di chuyển ngẫu nhiên với tốc độ cố định.
+- ![](res/sprites/Enemy/pineapple.png) *Pineapple* là Enemy đơn giản nhất, di chuyển ngẫu nhiên với tốc độ cố định.
 - ![](res/sprites/Enemy/chicken_walk_1.png) *Chicken* là Enemy di chuyển thông minh hơn so với Pineapple (biết đuổi theo Bomber).
 - ![](res/sprites/Enemy/strawberry_walk_1.png) *Strawberry* là Enemy di chuyển ngẫu nhiên nhưng tốc độ nhanh hơn Pineapple và Chicken.
 
@@ -46,6 +46,7 @@ Có 3 loại *Enemy*:
 ## Usage
 
 ## Demo
+![](res/demo.png)
 
 ## Future improvements
 - Add new items.
