@@ -1,0 +1,399 @@
+--UML DIAGRAM LINK--
+
+https://encr.pw/bomberman-uet-UETroach
+https://www.plantuml.com/plantuml/png/pLd1RYEv4RtxAvZTmsYmrWBPyq1OMzAiZP4jnvPtPh1O65HtMSqHc-omsVOeitC8yWMB77880YJOOn8WXvpMXnmSv3_y9-agDjLDTTjoPYV0NYJoLR5OLImMoUelSykDBLAvymkRG0eiNuADabLV5rOA1JjFsF3sBn6JTpT_p9Ywk_cjOlRknn_KOeVFSsjuP5aaUPwpiRB2hjYx7SO-4yeohaJABPJTJx7xrZTMs3XC-GAOI1V8xKRsYEjS2RlBYCyrrvnFaVLTRhaLqNisrre2LonA85eUAWicXyYE0BBUQTdWQY7XYn7ZkwpPdPEGAorYPa35O7fV6Pub8ig7MbbuQzaYSlDuuzupuYwoc5leFVN6BS2-wjN2SkoI_asErqqEx99PX95Lo7EOBW8k0aARFMNFERJNS2xH6mQYn7rTg9YRbHFh_IIyYthLEccRW26Mm9KqUj-8QDcxX_YIItaVRL-dyuTeuxUPrBdGgc6pGU99YLh4qRXO68YmTvxjiW0u5Ol41l9fzDTWh8YuxBL91zg8tsXbFT4xYvoFdH9-lxFJ3E4pi4TSyGMae2p5Sz-7NIS7j34SCn6vVOP63zYy_2sxDOm-7B3hyZU0os3Cym5Ru5z062j8LmC6-1SGQANA2V0l81nQI0TCbByUhjOzqyPoYG3g1eQK0rFgZbY7VSvl3ta0NRbzOBNhSgW8LJ_LLu3c2SXRE5dNGb7l5dYUGumsDuL44hZPyz7QsCSXvZ81Ogra4FPfIBr-Q3Os477YWaK4IwsGwbQIgDJQe9B1HALMIAKr9I8sQffpFU8djBP1Fl5OiFh4u9QVvl8H48wiuSr88ROwlhqCHDnswWeItUyFs2SfLwjF679lPKBVRcKY7s_b8bzlvIAVR-L2vp_0z4jd7PY7UToox6mSeYISlGlspParGYtOuMnyT36SJYRZuUnmUeo7w3gtvr-BNCmbX21k2PI4ChSThjiElK-xypaO5p8jJS98yg1dkt9zuWdr3SSHuXcAiaF1HJxgzxyRLBcevSGZdkrB7IsT8ttlKIu8xCR9_EW79pm3Rg8aN3UQutJwieMLQnXW3TznAM9IqpWLewVtS9uhKghqJfHmyystttpB5aR4D6hhu17aLYXEnwq_TrbSWWyDZtKnby0YBgD2SWiZKL9K18-Ni6P4py49jqal0Yb9UMoCm78XyzsQCJSHzMhv9D7vtECrWa9moQhLm9tccPeOiUs4GjmfJxhhQz-Cj4JXzTN4aSau93QlUgVwkjVi3xMi-mdFaw6E8TmhyEk2oxmtdR-1o38zVqFKQhTRxHek26lxwkjrnWqe-ohiliPkjLINZVQYqKwmZR9wzqz8jyLB7W4xqbVW9gMjiT3d6OtpNRgH1SW4BaDWfA-L4_k4JUWP4IMtVrS9kxhzCrlU_VWlPfExcx_ooaoNLzoAR2R1_UdH_iN9PEzuDXvTd4tFZqTTNAFntkoW9gDxyWmWnawz3VQak88c50EtoG5NiOJOZri2PAKBIgaUKKKAfNxJIzIp3fL2sH6EFwVSKP-l3sST_6s6pLa6OGxqqDg69lTnaQur2GS5b9RMnBhXY72yWpmBnzvZNqu_CKo2jmDN67v3deBXMvySzQcHETVJUZH8F7RC-4DtcPgKIQxiB06YTny4JcRp6F3Gvv-N42fQFoCWfOVmrj0C3eR9-Fci1PuUVdNGHizFMj1e-f8k1M7KUeHYUuXH6ko8eFCgwBtktYt4K5ffH_vDXjuYYxSVi1yQw4GAtziUgxLl3GYVtnwh3Vofsu2hMAThD_GsAPicKiYwa6dnOlHqnDr7IhkqEa7a4j8Et64YeYMexj0T7XmENuoFBxgogzJNdHdpiqhYjj3uM9bZVPuhU6iVFhXfR8f-Nm_Ak30XxRa1k2SVU5-HMycV3MZ0ziuiD_wM8HJmB9FLGRhk_WzU0KleFRhK4pIqSPFZwl7hEHXJbURg_aURlXRPCJz6V7T0ZL-TJAPdvLl61LFhecnuB8eyWElI5oMUa48vlJpvceahArMONe7nqMb52ZDDPQWOriMIvvAdC61SIcerGtbckCeljKafe6l1u4J4_gH_b3F3mPi9SEpHa2rCXIysT0f5jAXTPeGfhhAvr-M8viJxphdXV1viU7yZgvvK2n2EMwERwnISraunWfhQBMgjGwcpvk8-S8ot3l7WVK-2VVHIf-DXz_oYo3h0M5-h3jXW3kl09LpQJj4Jdjjxn8UaS8g05apZIVsWd8gyPE7Mw7qqvqR1jXb1NKTbteI3aPsdORy1a3eqRyVLa8YTPMnFhClO91DVbqQlY4JvgwOr1dNLF6hg54lgoE92ZR0WrXefiIxq-Dusppxs0jxjiuJUDJZFK4lfNDmWvwKLSI79GDn6kh3rVgaBBjWAjaPj1dL_ldQGUjs6q4MjDeIwFrz3IBrkGrnDqLdXslyF4qWB9pvGmPVUDhBbka2LykoBy91tcyi0ju1bjjK4hi2fBB7rjCryAQGiMTsk3oLN1OONPIdXUy7c-8cI_VlxkvlVLvfHCc3lkX_szNcrR_GIA37IW4SvS7DqcDygR9Cfp84k-q3iFmU67czz5Y69PB4pYzR1bohzMb1ftAq6DJ-i04f3koV05EhaO-l3n9ECPz_r-mtfJzZizczfkNh_-SVTpP_KmatdhjHkFchsxgalSYIwWbzO7jrQMkotggKPjyc9qH7akJPaOIQSUTaRzrzrozv69RIpkEa5EuBKESGJGTmRYXgXZR2hNnLGm3ClUS1q1We7aE_82svfdBaE2IgVDKHwh6jmfNT5-J6_OCka_F-Tec9SkNV-mAovk_c1zPR9xJ_LebcVU-hJZEGhC9WXZ9QoNQe3--m5hB3WEM1BM1sghB3XDNxFN-4nincMDGKIrDxv0K_lB085BCVVNHPydTfzx2TQyc3B5FIJazTDwn3kTuChKz55MtAxUMbSFoaTcziirKOXLRu45HUf_2y0
+
+--PLANTUML CODE--
+
+@startuml
+!theme sketchy-outline
+' Các lớp nền tảng
+abstract class Entity {
+  +int animate
+  #int x
+  #int y
+  #Image img
+  +Entity(int xUnit, int yUnit, Image img)
+  +{static} boolean checkIntersectDeep(Rectangle2D a, Rectangle2D b)
+  +void render(GraphicsContext gc)
+  +{abstract} void update()
+  +int getX()
+  +void setX(int x)
+  +int getY()
+  +void setY(int y)
+  +Image getImg()
+  +void setImg(Image img)
+  +void setAnimate(int animate)
+  +Rectangle2D getBoundary()
+  +boolean intersect(Entity other)
+  +boolean checkBoundBrick()
+  +boolean checkBoundWall()
+  +boolean checkBoundBomb()
+  +boolean checkBoundBombExplosion()
+  +void roundPosition(int directionUp, int directionRight)
+  +boolean roundVertical()
+  +boolean roundHorizontal()
+  +Rectangle getRect()
+}
+
+class EntitySetManagement {
+  -{static} EntitySetManagement entitySetManagement
+  -List<Bomb> bombList
+  -List<Wall> wallList
+  -List<Grass> grassList
+  -List<Enemy> enemyList
+  -List<Brick> brickList
+  -List<Item> itemList
+  -Entity portal
+  -Bomber bomberMan
+  -EntitySetManagement()
+  +{static} EntitySetManagement getEntitySetManagement()
+  +{static} void reset()
+  +void removeEnemies()
+  +void removeBrick()
+  +void removeBomb()
+  +void removeUsedItems()
+  +void clearAll()
+  +void updateAll()
+  +void renderAll(GraphicsContext graphicsContext)
+  +List<Wall> getWallList()
+  +List<Grass> getGrassList()
+  +List<Enemy> getEnemyList()
+  +List<Brick> getBrickList()
+  +List<Item> getItemList()
+  +Entity getPortal()
+  +void setPortal(Entity portal)
+  +Bomber getBomberMan()
+  +void setBomberMan(Bomber bomberMan)
+  +List<Bomb> getBombList()
+}
+
+EntitySetManagement o--> "many" Bomb
+EntitySetManagement o--> "many" Wall
+EntitySetManagement o--> "many" Grass
+EntitySetManagement o--> "many" Enemy
+EntitySetManagement o--> "many" Brick
+EntitySetManagement o--> "many" Item
+EntitySetManagement o--> "1" Bomber
+EntitySetManagement o--> "1" Portal
+
+abstract class Item {
+  +{static} String ITEM_COLLECTION
+  #boolean isVisible
+  #boolean isUsed
+  +Item(int xUnit, int yUnit, Image img)
+  +{abstract} void update()
+  #boolean checkBoundBomber()
+  +boolean isVisible()
+  +void setVisible(boolean visible)
+  +boolean isUsed()
+  +void setUsed(boolean used)
+}
+
+Item --|> Entity
+
+abstract class MapBlock {
+  +MapBlock(int xUnit, int yUnit, Image img)
+  +void update()
+}
+
+MapBlock --|> Entity
+
+abstract class Search {
+  +{static} int ROW
+  +{static} int COL
+  +{static} boolean isValid(int r, int c)
+  +{static} boolean isUnBlocked(char[][] grid, int r, int c)
+  +{static} boolean isDestination(Position dest, int r, int c)
+  +{static} double calculateDistance(Position dest, int r, int c)
+  +{static} Position tracePath(cell[][] cellDetails, Position src, Position dest)
+  +class Position
+  +class cell
+}
+
+Search --> Position
+Search --> cell
+
+class Position {
+  -int row
+  -int col
+  +Position(int row, int col)
+  +int getRow()
+  +int getCol()
+  +int hashCode()
+  +boolean equals(Object obj)
+  +String toString()
+}
+
+class cell {
+  +int parentX
+  +int parentY
+  +double f
+  +double g
+  +double h
+  +cell()
+  +String toString()
+}
+
+interface Move {
+  +void goUp()
+  +void goRight()
+  +void goLeft()
+  +void goDown()
+}
+
+' Lớp chính và kế thừa
+class Bomber {
+  -{static} String BOMB_PLANTED_SOUND
+  -{static} String DEATH_SOUND
+  -int speed
+  -boolean isAlive
+  -boolean deathHandled
+  -int keepMoving
+  -int numeberOfBomb
+  -int countDeathUpdate
+  +Bomber(int xUnit, int yUnit, Image image)
+  +int getSpeed()
+  +void setSpeed(int speed)
+  +int getNumberOfBomb()
+  +void setNumberOfBomb(int numeberOfBomb)
+  +boolean isAlive()
+  +void setAlive(boolean alive)
+  +void render(GraphicsContext gc)
+  +void goUp()
+  +void goRight()
+  +void goLeft()
+  +void goDown()
+  +boolean canMoveCamera()
+  +boolean checkBoundBomb()
+  +void setUpBomberDeath()
+  +void addBomb(Bomb bomb)
+  +void plantTheBomb()
+  +void update()
+}
+
+Bomber --|> Entity
+Bomber ..|> Move
+
+class Enemy {
+  -{static} String DEATH_SOUND
+  -{static} int LEFT
+  -{static} int RIGHT
+  -{static} int UP
+  -{static} int DOWN
+  #int keepMoving
+  #int deathCount
+  -int speed
+  -int speedX
+  -int speedY
+  -boolean isAlive
+  -int lastDirection
+  +Enemy(int xUnit, int yUnit, Image img)
+  +int getSpeed()
+  +void setSpeed(int speed)
+  +int getSpeedX()
+  +void setSpeedX(int speedX)
+  +int getSpeedY()
+  +void setSpeedY(int speedY)
+  +boolean isAlive()
+  +void setAlive(boolean alive)
+  +void randomDirection()
+  +void randomSpeed()
+  +void checkBomber()
+  +void randomMove()
+  +void update()
+  +void goUp()
+  +void goRight()
+  +void goLeft()
+  +void goDown()
+}
+
+Enemy --|> Entity
+Enemy ..|> Move
+
+class Chicken {
+  -{static} String CHICKEN_DEATH_SOUND
+  -int slow
+  -int keepMoving
+  +Chicken(int xUnit, int yUnit, Image img)
+  +void goUp()
+  +void goRight()
+  +void goLeft()
+  +void goDown()
+  +Position nextPosition(int row, int col)
+  +void move(Position pair)
+  +void moveFree()
+  +void update()
+}
+
+Chicken --|> Enemy
+Chicken --> AStar
+
+class Pineapple {
+  +Pineapple(int xUnit, int yUnit, Image img)
+  +void getImage()
+  +void update()
+}
+
+Pineapple --|> Enemy
+
+class Strawberry {
+  +Strawberry(int xUnit, int yUnit, Image img)
+  +void getImage()
+  +void update()
+}
+
+Strawberry --|> Enemy
+
+class Bomb {
+  -{static} String EXPLOSION_SOUND
+  +{static} int radius
+  +{static} int animation
+  +{static} int bombNum
+  -boolean passOver
+  -int timeToExplode
+  -List<Flame> allFlame
+  -int keepTransforming
+  -boolean exploded
+  +Bomb(int xUnit, int yUnit, Image img)
+  +boolean exploded()
+  +void setExploded(boolean exploded)
+  +int getKeepTransforming()
+  +void setKeepTransforming(int keepTransforming)
+  +void setAllFlame(List<Flame> allFlame)
+  +int getBombNum()
+  +void setBombNum(int bombNum)
+  +boolean isPassOver()
+  +void setPassOver(boolean passOver)
+  +void addFlame()
+  +List<Flame> getAllFlame()
+  +void setTimeToExplode()
+  +void update()
+}
+
+Bomb --|> Entity
+Bomb o--> "many" Flame
+
+class Flame {
+  +{static} int F_up
+  +{static} int F_down
+  +{static} int F_right
+  +{static} int F_left
+  +{static} int F_upLast
+  +{static} int F_downLast
+  +{static} int F_rightLast
+  +{static} int F_leftLast
+  -int direction
+  +Flame(int xUnit, int yUnit, Image img)
+  +Flame(int xUnit, int yUnit, Image img, int direction)
+  +int getDirection()
+  +void setDirection(int direction)
+  +void update()
+  -void updateFlameImage()
+  +boolean checkFlameBrick()
+  +boolean checkFlameWall()
+  +void destroyFlameEnemy()
+  +void checkFlameBomber()
+  +boolean checkFlameOtherBomb()
+}
+
+Flame --|> Entity
+
+class BombItem {
+  +BombItem(int xUnit, int yUnit, Image img)
+  +void render(GraphicsContext gc)
+  +void update()
+  -void handleItemCollection()
+  -void scheduleBombTimeout()
+}
+
+BombItem --|> Item
+
+class FlameItem {
+  +FlameItem(int xUnit, int yUnit, Image img)
+  +void render(GraphicsContext gc)
+  +void update()
+  -void handleItemCollection()
+  -void scheduleBombTimeout()
+}
+
+FlameItem --|> Item
+
+class SpeedItem {
+  +SpeedItem(int xUnit, int yUnit, Image img)
+  +void render(GraphicsContext gc)
+  +void update()
+  -void handleItemCollection()
+  -void scheduleBombTimeout()
+}
+
+SpeedItem --|> Item
+
+class Portal {
+  +Portal(int xUnit, int yUnit, Image img)
+  +void render(GraphicsContext gc)
+  +void update()
+}
+
+Portal --|> Item
+
+class Map {
+  +{static} char[][] map2D
+  +{static} void createMapByLevel(int level)
+  +{static} void fillMapImage(char[][] map2D)
+}
+
+' Khối bản đồ
+class Brick {
+  -int keepMoving
+  -boolean isBroken
+  +Brick(int xUnit, int yUnit, Image img)
+  +boolean isBroken()
+  +void setBroken(boolean isBroken)
+  +void setDestroyedImg()
+  +void update()
+  +void removeBroken()
+}
+
+Brick --|> MapBlock
+
+class Grass {
+  +Grass(int xUnit, int yUnit, Image img)
+  +void update()
+}
+
+Grass --|> MapBlock
+
+class Wall {
+  +Wall(int xUnit, int yUnit, Image img)
+  +void update()
+}
+
+Wall <|-- MapBlock
+
+' Tìm đường
+class AStar {
+  +AStar()
+  +{static} Position aStarSearch(char[][] grid, Position src, Position dest)
+  -{static} boolean pathProcessor(int pi, int pj, int i, int j, Position dest, cell[][] cellDetails, boolean[][] closedList, char[][] grid, PriorityQueue<Position> openList)
+}
+
+AStar --|> Search
+AStar --> Position
+AStar --> cell
+
+' Lớp điều khiển và hỗ trợ (không kế thừa)
+class PlayerController {
+  -{static} Set<KeyCode> keyInputs
+  +{static} AnimationTimer playerControlTimer
+  +{static} void playerControl(Scene scene, Bomber bomber, EntitySetManagement entitySetManagement)
+}
+
+PlayerController --> Bomber
+PlayerController --> EntitySetManagement
+
+class CameraTranslate {
+  +{static} void moveCamera(int x, int y)
+}
+
+@enduml
