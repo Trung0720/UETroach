@@ -197,7 +197,7 @@ public class Bomb extends Entity {
             }, 3530);
 
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Bomb explode error:" + ex.getMessage());
         }
     }
 

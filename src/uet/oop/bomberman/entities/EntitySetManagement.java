@@ -77,7 +77,9 @@ public class EntitySetManagement {
         try {
             grassList.forEach(Grass::update);
             wallList.forEach(Wall::update);
-            portal.update();
+            if (portal != null) {
+                portal.update();
+            }
             itemList.forEach(Item::update);
             brickList.forEach(Brick::update);
             bombList.forEach(bomb -> {
@@ -85,9 +87,11 @@ public class EntitySetManagement {
             });
             bombList.forEach(Bomb::update);
             enemyList.forEach(Enemy::update);
-            bomberMan.update();
+            if (bomberMan != null) {
+                bomberMan.update();
+            }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Update all error:" + e.getMessage());
         }
     }
 
@@ -110,7 +114,7 @@ public class EntitySetManagement {
             enemyList.forEach(enemy -> enemy.render(graphicsContext));
             bomberMan.render(graphicsContext);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Render all error:" + e.getMessage());
         }
     }
 
