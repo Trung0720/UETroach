@@ -162,7 +162,7 @@ public class Sprite {
             index = (index + frameCount) % frameCount;
             res = frames[index];
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Moving sprite error" + e.getMessage());
         }
 
         return res;
