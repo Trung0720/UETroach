@@ -83,7 +83,6 @@ public class StatusBar {
     }
 
     public static void updateStatusBar(long now) {
-        level.setText("LEVEL: " + GameLoop.currentLevel);
         String timeText = ((countDown % 6000) / 100 < 10) ? "0" : "";
         time.setText("TIME: " + countDown / 6000 + ":" + timeText + (countDown % 6000) / 100);
         score.setText("SCORE: " + GameLoop.score);

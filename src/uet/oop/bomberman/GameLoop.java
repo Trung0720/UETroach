@@ -135,6 +135,7 @@ public class GameLoop extends AnimationTimer {
         Map.createMapByLevel(nextLevel);
         currentLevel = nextLevel;
         StatusBar.countDown = 30000;
+        StatusBar.level.setText("LEVEL: " + GameLoop.currentLevel);
 
         CameraTranslate.moveCamera(Main.cameraX, Main.cameraY);
         Main.cameraX = 0;
