@@ -11,6 +11,9 @@ import uet.oop.bomberman.Main;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.sound.Sound;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MenuView {
     private static final int WIDTH = Main.CAMERA_WIDTH * Sprite.SCALED_SIZE;
     private static final int HEIGHT = Main.CAMERA_HEIGHT * Sprite.SCALED_SIZE;
@@ -19,19 +22,33 @@ public class MenuView {
     private final Group root;
     private final GameLoop gameLoop;
     private static Pane pane;
-    private MenuSubScene scoresSubScene;
-    private MenuSubScene helpSubScene;
-    private MenuSubScene creditsSubScene;
+    private final MenuSubScene scoresSubScene = new MenuSubScene(SubsceneType.SCORES);
+    private final MenuSubScene helpSubScene = new MenuSubScene(SubsceneType.HELP);
+    private final MenuSubScene creditsSubScene = new MenuSubScene(SubsceneType.CREDITS);
     private MenuSubScene sceneToHide;
+    private final MenuButton startButton = new MenuButton("START");
+    private final MenuButton scoresButton = new MenuButton("SCORES");
+    private final MenuButton helpButton = new MenuButton("HELP");
+    private final MenuButton creditsButton = new MenuButton("CREDITS");
+    private final MenuButton exitButton = new MenuButton("EXIT");
+    private final ArrayList<MenuButton> buttonList = new ArrayList<>(
+            Arrays.asList(startButton, scoresButton, helpButton, creditsButton, exitButton)
+    );
 
     public MenuView(Group root, GameLoop gameLoop) {
         this.root = root;
         this.gameLoop = gameLoop;
         pane = new Pane();
+
+        pane.getChildren().addAll(
+                scoresSubScene,
+                helpSubScene,
+                creditsSubScene
+        );
+
         createBackground();
         createLogo();
         createButtons();
-        createSubScene();
         root.getChildren().add(pane);
     }
 
@@ -69,17 +86,6 @@ public class MenuView {
         pane.getChildren().add(logo);
     }
 
-    private void createSubScene() {
-        scoresSubScene = new MenuSubScene(SubsceneType.SCORES);
-        helpSubScene = new MenuSubScene(SubsceneType.HELP);
-        creditsSubScene = new MenuSubScene(SubsceneType.CREDITS);
-        pane.getChildren().addAll(
-                scoresSubScene,
-                helpSubScene,
-                creditsSubScene
-        );
-    }
-
     private void showSubScene(MenuSubScene menuSubScene) {
         if (sceneToHide != null) {
             sceneToHide.fadeOut();
@@ -98,61 +104,30 @@ public class MenuView {
 
     }
 
-    private void addMenuButton(MenuButton menuButton) {
-        menuButton.setLayoutX(0);
-        menuButton.setLayoutY(260 + buttonCount * 100);
-        buttonCount++;
-        pane.getChildren().add(menuButton);
-    }
-
     private void createButtons() {
-        createStartButton();
-        createScoresButton();
-        createHelpButton();
-        createCreditsButton();
-        createExitButton();
-    }
-
-    private void createStartButton() {
-        MenuButton startButton = new MenuButton("PLAY");
-        addMenuButton(startButton);
+        buttonList.forEach(menuButton -> {
+            menuButton.setLayoutX(0);
+            menuButton.setLayoutY(260 + buttonCount * 100);
+            buttonCount++;
+            pane.getChildren().add(menuButton);
+        });
 
         startButton.setOnAction(actionEvent -> {
             pane.setVisible(false);
             GameLoop.gameStatus = 1;
         });
-    }
-
-    private void createScoresButton() {
-        MenuButton scoresButton = new MenuButton("SCORES");
-        addMenuButton(scoresButton);
 
         scoresButton.setOnAction(actionEvent -> {
             showSubScene(scoresSubScene);
         });
-    }
-
-    private void createHelpButton() {
-        MenuButton helpButton = new MenuButton("HELP");
-        addMenuButton(helpButton);
 
         helpButton.setOnAction(actionEvent -> {
             showSubScene(helpSubScene);
         });
-    }
-
-    private void createCreditsButton() {
-        MenuButton creditsButton = new MenuButton("CREDITS");
-        addMenuButton(creditsButton);
 
         creditsButton.setOnAction(actionEvent -> {
             showSubScene(creditsSubScene);
         });
-    }
-
-    private void createExitButton() {
-        MenuButton exitButton = new MenuButton("EXIT");
-        addMenuButton(exitButton);
 
         exitButton.setOnAction(actionEvent -> {
             Sound.stopAll();
