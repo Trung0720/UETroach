@@ -42,7 +42,7 @@ https://encr.pw/bomberman-uet-UETroach
 ## Cài đặt
 
 Hướng dẫn:
-1. Copy đường dẫn của lib sau khi giải nén (sau đây gọi là PATH).
+1. Copy đường dẫn của lib trong thư mục javafx sau khi giải nén (sau đây gọi là PATH).
 2. Mở IntelliJ chọn Project Structure\Libraries\+\PATH.
 3. Tiếp theo tại nút ⋮\Run with parameters\Modify options\Add VM Options.
 4. Điền "--module-path=PATH --add-modules javafx.controls,javafx.fxml,javafx.media".
