@@ -65,4 +65,4 @@ Hướng dẫn:
 - Đã hoàn thành.
   
 ## Notes
-- Cải tiến dựa trên mã nguồn cũ 
+- Cải tiến dựa trên mã nguồn cũ https://github.com/bt-nghia/bomberman-uet
